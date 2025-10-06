@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 </head>
+
 <body class="bg-gray-50 font-sans text-gray-800 transition-all duration-500">
     <!-- Navbar -->
     <nav class="bg-blue-900 text-white fixed w-full top-0 z-40 shadow-lg">
@@ -31,20 +33,25 @@
     </nav>
 
     <!-- Hero Section with 3D Background -->
-    <section id="home" class="min-h-screen flex items-center bg-gradient-to-r from-blue-800 to-blue-600 text-white relative overflow-hidden">
+    <section id="home"
+        class="min-h-screen flex items-center bg-gradient-to-r from-blue-800 to-blue-600 text-white relative overflow-hidden">
         <canvas id="three-bg" class="absolute inset-0 z-0"></canvas>
         <div class="container mx-auto max-w-7xl px-8 text-center relative z-10">
             <h1 class="text-5xl font-bold mb-4 kinetic-text">Dhruv Panchal</h1>
             <p class="text-xl mb-6 typewriter">Machine Learning Enthusiast & Data Scientist</p>
             <div class="space-x-4">
-                <a href="#projects" class="bg-white text-blue-900 px-6 py-3 rounded-full font-semibold hover:bg-blue-200 transition micro-interact">View My Work</a>
-                <a href="DhruvPanchal.pdf" class="bg-transparent border-2 border-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-900 transition micro-interact" download>Download CV</a>
+                <a href="#projects"
+                    class="bg-white text-blue-900 px-6 py-3 rounded-full font-semibold hover:bg-blue-200 transition micro-interact">View
+                    My Work</a>
+                <a href="DhruvPanchal.pdf"
+                    class="bg-transparent border-2 border-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-900 transition micro-interact"
+                    download>Download CV</a>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 bg-white scroll-reveal">
+    <!-- <section id="about" class="py-16 bg-white scroll-reveal">
         <div class="container mx-auto max-w-7xl px-8">
             <h2 class="text-4xl font-bold text-center mb-10 kinetic-text">About Me</h2>
             <div class="flex flex-col md:flex-row items-center">
@@ -59,6 +66,35 @@
                 <div class="md:w-1/2 text-center">
                     <img src="images/profile.jpg" alt="Dhruv Panchal" class="w-48 h-48 rounded-full object-cover mx-auto">
                 </div>
+            </div>
+        </div>
+    </section> -->
+
+    <section id="about" class="py-20 bg-white scroll-reveal">
+        <div class="container mx-auto max-w-7xl px-8">
+            <h2 class="text-4xl font-bold text-center mb-16 kinetic-text">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-16">
+                
+                <div class="md:w-3/5 text-left">
+                    <p class="text-lg leading-relaxed text-gray-700">
+                        I am a Machine Learning practitioner and researcher currently pursuing my M.Tech at Dhirubhai Ambani University. My academic journey is built on a foundation of excellence, having been awarded the <b>Gold Medal</b> for my B.E. from Gandhinagar Institute of Technology. I specialize in building and deploying high-impact models at the intersection of computer vision and multimodal AI.
+                    </p>
+                    <p class="text-lg leading-relaxed text-gray-700 mt-6">
+                        My project experience includes developing novel pipelines for high-precision satellite image segmentation, where I improved performance by <b>23%</b> IoU over baseline models, and engineering custom vision-language architectures from the ground up. As an intern, I built a multimodal AI assistant that achieved <b>97%</b> accuracy on a custom NLP classifier, demonstrating my ability to translate complex theory into practical, high-performance applications.
+                    </p>
+                    <p class="text-lg leading-relaxed text-gray-700 mt-6">
+                        Beyond my core research, I am passionate about <b>sharing knowledge</b>, serving as a <b>Teaching Assistant</b> for over <b>350 students</b> at my DAU university. I am driven to tackle complex challenges and contribute to data-driven solutions that push the boundaries of what's possible in artificial intelligence.
+                    </p>
+                </div>
+
+                <div class="md:w-2/5 flex justify-center">
+                    <div class="relative">
+                        <div class="absolute -top-3 -left-3 w-80 h-80 bg-blue-100 rounded-full"></div>
+                        <img src="images/profile.jpg" alt="Dhruv Panchal"
+                            class="relative w-80 h-80 rounded-full object-cover mx-auto shadow-xl border-4 border-white">
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -86,22 +122,35 @@
 
     <!-- Experience Section -->
     <section id="experience" class="py-16 bg-white scroll-reveal">
-          <div class="container mx-auto max-w-7xl px-8">
+        <div class="container mx-auto max-w-7xl px-8">
             <h2 class="text-4xl font-bold text-center mb-10 kinetic-text">Experience</h2>
             <div class="space-y-8">
                 <div class="bg-gray-100 p-6 rounded-lg shadow-sm glass-card micro-interact">
                     <h3 class="text-2xl font-semibold mb-2">Intelligent Assistance with Face Recognition</h3>
                     <p class="font-semibold">Kody Technolab Ltd.</p>
                     <p class="mt-2">Jan 2024 - Jun 2024</p>
-                    <p class="mt-2">Developed an AI-based system integrating facial recognition and natural language processing (NLP) to provide personalized assistance within the college domain. The system greets users by name if recognized or generically greets unknown users, and responds to queries related to college information. Explored Technologies: Gained proficiency in Python, ML, DL, OpenCV, and NLP.</p>
-                    <a href="https://github.com/panchaldhruv27223/InteliggentAssistentWithFaceRecognition" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline mt-4 inline-block">View on GitHub</a>
+                    <p class="mt-2">Developed an AI-based system integrating facial recognition and natural language
+                        processing (NLP) to provide personalized assistance within the college domain. The system greets
+                        users by name if recognized or generically greets unknown users, and responds to queries related
+                        to college information. Explored Technologies: Gained proficiency in Python, ML, DL, OpenCV, and
+                        NLP.</p>
+                    <a href="https://github.com/panchaldhruv27223/InteliggentAssistentWithFaceRecognition"
+                        target="_blank" rel="noopener noreferrer"
+                        class="text-blue-600 hover:underline mt-4 inline-block">View on GitHub</a>
                 </div>
                 <div class="bg-gray-100 p-6 rounded-lg shadow-sm glass-card micro-interact">
                     <h3 class="text-2xl font-semibold mb-2">Predict The Chance of Admission</h3>
                     <p class="font-semibold">Snapfix Ltd.</p>
                     <p class="mt-2">Jul 2023 - Aug 2023</p>
-                    <p class="mt-2">Developed a predictive model to estimate the likelihood of admission to a specific educational institution using the Linear Regression algorithm. By utilizing historical admission data and relevant features, I created a model that assists prospective students in understanding their chances of acceptance. I used pandas, numpy, matplotlib, seaborn and scikit-learn to create an End to End project which is deployed in aws. I enhanced my knowledge of statistics and machine learning algorithms.</p>
-                    <a href="https://github.com/panchaldhruv27223/Chnace_to_get_admission" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline mt-4 inline-block">View on GitHub</a>
+                    <p class="mt-2">Developed a predictive model to estimate the likelihood of admission to a specific
+                        educational institution using the Linear Regression algorithm. By utilizing historical admission
+                        data and relevant features, I created a model that assists prospective students in understanding
+                        their chances of acceptance. I used pandas, numpy, matplotlib, seaborn and scikit-learn to
+                        create an End to End project which is deployed in aws. I enhanced my knowledge of statistics and
+                        machine learning algorithms.</p>
+                    <a href="https://github.com/panchaldhruv27223/Chnace_to_get_admission" target="_blank"
+                        rel="noopener noreferrer" class="text-blue-600 hover:underline mt-4 inline-block">View on
+                        GitHub</a>
                 </div>
             </div>
         </div>
@@ -112,28 +161,65 @@
     <!-- Skills Section (Bento Grid) -->
     <section id="skills" class="py-16 bg-gray-100 scroll-reveal">
         <div class="container mx-auto max-w-7xl px-8">
-            <h2 class="text-4xl font-bold text-center mb-8 kinetic-text">Skills</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 bento-grid">
-                <div class="bg-white p-6 rounded-lg shadow-sm glass-card micro-interact">
-                    <span class="text-4xl">🤖</span>
-                    <h3 class="text-2xl font-semibold mb-2">Machine Learning</h3>
-                    <p>TensorFlow, PyTorch, Scikit-learn, YOLO, SAM</p>
+            <h2 class="text-4xl font-bold text-center mb-12 kinetic-text">Core Competencies</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <div class="bg-white p-8 rounded-lg shadow-md glass-card text-center">
+                    <div class="flex justify-center mb-4">
+                        <svg class="w-12 h-12 text-blue-600" xmlns="http://www.w.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">Programming & Frameworks</h3>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">SKLearn</span>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm glass-card micro-interact">
-                    <span class="text-4xl">📊</span>
-                    <h3 class="text-2xl font-semibold mb-2">Data Science</h3>
-                    <p>Python, Pandas, NumPy, Matplotlib</p>
+
+                <div class="bg-white p-8 rounded-lg shadow-md glass-card text-center">
+                    <div class="flex justify-center mb-4">
+                        <svg class="w-12 h-12 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">Databases & Tools</h3>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Jupyter</span>
+                        <span class="skill-tag">Linux Shell</span>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm glass-card micro-interact">
-                    <span class="text-4xl">☁️</span>
-                    <h3 class="text-2xl font-semibold mb-2">MLOps & Cloud</h3>
-                    <p>AWS, GCP, Docker, MLflow</p>
+
+                <div class="bg-white p-8 rounded-lg shadow-md glass-card text-center">
+                    <div class="flex justify-center mb-4">
+                        <svg class="w-12 h-12 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">Professional Skills</h3>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <span class="skill-tag">Project Leadership</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Collaboration</span>
+                        <span class="skill-tag">Mentoring & Teaching</span>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm glass-card micro-interact">
-                    <span class="text-4xl">🧠</span>
-                    <h3 class="text-2xl font-semibold mb-2">Specialized Areas</h3>
-                    <p>Computer Vision, NLP, Recommendation Systems</p>
-                </div>
+
             </div>
         </div>
     </section>
@@ -167,43 +253,54 @@
 
 
     <section id="projects" class="py-16 bg-white scroll-reveal">
-      <div class="container mx-auto max-w-7xl px-8">
-        <h2 class="text-4xl font-bold text-center mb-8 kinetic-text">Projects</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 bento-grid">
+        <div class="container mx-auto max-w-7xl px-8">
+            <h2 class="text-4xl font-bold text-center mb-8 kinetic-text">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 bento-grid">
 
-            <div class="bg-gray-100 p-6 rounded-lg shadow-sm glass-card project-card micro-interact cursor-pointer" data-details="Led the development of a hybrid YOLOS/DETR + SAM pipeline, improving IoU by 23%. Created the first India-specific rooftop dataset with 5000+ annotated aerial tiles. Tech: Python, PyTorch, Transformers.">
-                <span class="text-4xl">🏠</span>
-                <h3 class="text-2xl font-semibold mb-2">High-Precision Rooftop Segmentation</h3>
-                <p class="line-clamp-3">Developed a novel hybrid pipeline using YOLOS and SAM to improve rooftop segmentation on high-resolution satellite images.</p>
-                <a href="https://github.com/panchaldhruv27223/Solar_Rooftop_Detection" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline mt-4 inline-block">View on GitHub</a>
-            </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-sm glass-card project-card micro-interact cursor-pointer"
+                    data-details="Led the development of a hybrid YOLOS/DETR + SAM pipeline, improving IoU by 23%. Created the first India-specific rooftop dataset with 5000+ annotated aerial tiles. Tech: Python, PyTorch, Transformers.">
+                    <span class="text-4xl">🏠</span>
+                    <h3 class="text-2xl font-semibold mb-2">High-Precision Rooftop Segmentation</h3>
+                    <p class="line-clamp-3">Developed a novel hybrid pipeline using YOLOS and SAM to improve rooftop
+                        segmentation on high-resolution satellite images.</p>
+                    <a href="https://github.com/panchaldhruv27223/Solar_Rooftop_Detection" target="_blank"
+                        rel="noopener noreferrer" class="text-blue-600 hover:underline mt-4 inline-block">View on
+                        GitHub</a>
+                </div>
 
-            <div class="bg-gray-100 p-6 rounded-lg shadow-sm glass-card project-card micro-interact cursor-pointer" data-details="Engineered a fully custom Vision-Language architecture integrating a SigLIP vision transformer with a Gemma decoder. Developed an inference-ready pipeline with KV caching and top-p decoding. Tech: Python, PyTorch, Transformers.">
-                <span class="text-4xl">👁️</span>
-                <h3 class="text-2xl font-semibold mb-2">Vision-Language Model (PaliGemma)</h3>
-                <p class="line-clamp-3">Engineered a custom architecture integrating SigLIP and Gemma for image-conditioned text generation and visual Q&A systems.</p>
-                <a href="https://github.com/panchaldhruv27223/Vision-Language-Model" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline mt-4 inline-block">View on GitHub</a>
-            </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-sm glass-card project-card micro-interact cursor-pointer"
+                    data-details="Engineered a fully custom Vision-Language architecture integrating a SigLIP vision transformer with a Gemma decoder. Developed an inference-ready pipeline with KV caching and top-p decoding. Tech: Python, PyTorch, Transformers.">
+                    <span class="text-4xl">👁️</span>
+                    <h3 class="text-2xl font-semibold mb-2">Vision-Language Model (PaliGemma)</h3>
+                    <p class="line-clamp-3">Engineered a custom architecture integrating SigLIP and Gemma for
+                        image-conditioned text generation and visual Q&A systems.</p>
+                    <a href="https://github.com/panchaldhruv27223/Vision-Language-Model" target="_blank"
+                        rel="noopener noreferrer" class="text-blue-600 hover:underline mt-4 inline-block">View on
+                        GitHub</a>
+                </div>
 
-            <div class="bg-gray-100 p-6 rounded-lg shadow-sm glass-card project-card micro-interact cursor-pointer" data-details="Developed hybrid Quantum Neural Networks achieving 81.12% accuracy on CIFAR-10. Engineered 15+ quantum circuits and conducted an ablation study on model performance. Tech: Python, Quantum ML, Pennylane, TensorFlow.">
-                <span class="text-4xl">⚛️</span>
-                <h3 class="text-2xl font-semibold mb-2">Quanvolution Neural Network</h3>
-                <p class="line-clamp-3">Developed hybrid QNNs for image classification, achieving 81.12% accuracy on CIFAR-10, rivaling classical CNNs.</p>
-                <a href="https://github.com/panchaldhruv27223" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline mt-4 inline-block">View on GitHub</a>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-sm glass-card project-card micro-interact cursor-pointer"
+                    data-details="Developed hybrid Quantum Neural Networks achieving 81.12% accuracy on CIFAR-10. Engineered 15+ quantum circuits and conducted an ablation study on model performance. Tech: Python, Quantum ML, Pennylane, TensorFlow.">
+                    <span class="text-4xl">⚛️</span>
+                    <h3 class="text-2xl font-semibold mb-2">Quanvolution Neural Network</h3>
+                    <p class="line-clamp-3">Developed hybrid QNNs for image classification, achieving 81.12% accuracy on
+                        CIFAR-10, rivaling classical CNNs.</p>
+                    <a href="https://github.com/panchaldhruv27223" target="_blank" rel="noopener noreferrer"
+                        class="text-blue-600 hover:underline mt-4 inline-block">View on GitHub</a>
+                </div>
+
             </div>
-            
         </div>
-      </div>
     </section>
 
-<!-- <section id="certificates" class="py-16 bg-gray-100">
+    <!-- <section id="certificates" class="py-16 bg-gray-100">
   <div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
     <h2 class="text-4xl font-bold text-center mb-12">Certificates</h2>
 
     <div class="space-y-10"> -->
 
-      <!-- Certificate 1 -->
-      <!-- <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md flex flex-col md:flex-row items-center gap-6">
+    <!-- Certificate 1 -->
+    <!-- <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md flex flex-col md:flex-row items-center gap-6">
         <div class="md:w-1/2">
           <h3 class="text-2xl font-semibold mb-1">Machine Learning Specialization</h3>
           <p class="text-gray-600 font-medium">Coursera (Stanford Online)</p>
@@ -216,8 +313,8 @@
         </div>
       </div> -->
 
-      <!-- Certificate 2 -->
-      <!-- <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md flex flex-col md:flex-row items-center gap-6">
+    <!-- Certificate 2 -->
+    <!-- <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md flex flex-col md:flex-row items-center gap-6">
         <div class="md:w-1/2">
           <h3 class="text-2xl font-semibold mb-1">Deep Learning with TensorFlow</h3>
           <p class="text-gray-600 font-medium">Udemy</p>
@@ -230,8 +327,8 @@
         </div>
       </div> -->
 
-      <!-- Certificate 3 -->
-      <!-- <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md flex flex-col md:flex-row items-center gap-6">
+    <!-- Certificate 3 -->
+    <!-- <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md flex flex-col md:flex-row items-center gap-6">
         <div class="md:w-1/2">
           <h3 class="text-2xl font-semibold mb-1">AWS Certified Cloud Practitioner</h3>
           <p class="text-gray-600 font-medium">Amazon Web Services</p>
@@ -250,123 +347,162 @@
 
 
     <section id="certificates" class="py-16 bg-gray-100">
-      <div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <h2 class="text-4xl font-bold text-center mb-12">Certificates</h2>
+        <div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12">Certificates</h2>
 
-        <div class="space-y-10">
+            <div class="space-y-10">
 
-          <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md flex flex-col md:flex-row items-center gap-8">
-            <div class="md:w-1/2">
-              <h3 class="text-2xl font-semibold mb-1">Data Science Masters 2.0</h3>
-              <p class="text-gray-600 font-medium">Physics Wallah</p>
-              <p class="text-gray-500 mt-1">Issued: December 2024</p>
-              <p class="text-gray-700 mt-2">Completed the comprehensive Data Science Masters 2.0 Program, covering a wide range of data science concepts.</p>
-              <a href="https://pwskills.com/learn/certificate/16bba64e-2a1e-4ac-90aa-a9068284264f" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 bg-blue-600 text-white px-5 py-2 rounded-full font-semibold hover:bg-blue-700 transition">View Certificate</a>
-            </div>
-            <div class="md:w-1/2">
-              <img src="images/cert3.jpg" alt="Data Science Masters 2.0 Certificate" class="w-full h-auto object-contain rounded-lg border border-gray-200 shadow-sm">
-            </div>
-          </div>
+                <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-semibold mb-1">Data Science Masters 2.0</h3>
+                        <p class="text-gray-600 font-medium">Physics Wallah</p>
+                        <p class="text-gray-500 mt-1">Issued: December 2024</p>
+                        <p class="text-gray-700 mt-2">Completed the comprehensive Data Science Masters 2.0 Program,
+                            covering a wide range of data science concepts.</p>
+                        <a href="https://pwskills.com/learn/certificate/16bba64e-2a1e-4ac-90aa-a9068284264f"
+                            target="_blank" rel="noopener noreferrer"
+                            class="inline-block mt-4 bg-blue-600 text-white px-5 py-2 rounded-full font-semibold hover:bg-blue-700 transition">View
+                            Certificate</a>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="images/cert3.jpg" alt="Data Science Masters 2.0 Certificate"
+                            class="w-full h-auto object-contain rounded-lg border border-gray-200 shadow-sm">
+                    </div>
+                </div>
 
-          <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md flex flex-col md:flex-row items-center gap-8">
-            <div class="md:w-1/2">
-              <h3 class="text-2xl font-semibold mb-1">Advanced Learning Algorithms</h3>
-              <p class="text-gray-600 font-medium">DeepLearning.AI & Stanford University</p>
-              <p class="text-gray-500 mt-1">Issued: March 2023</p>
-              <p class="text-gray-700 mt-2">Covered advanced machine learning algorithms and techniques through the Coursera platform.</p>
-              <a href="https://coursera.org/verify/7ZVANPB76FCM" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 bg-blue-600 text-white px-5 py-2 rounded-full font-semibold hover:bg-blue-700 transition">View Certificate</a>
-            </div>
-            <div class="md:w-1/2">
-              <img src="images/cert2.jpg" alt="Advanced Learning Algorithms Certificate" class="w-full h-auto object-contain rounded-lg border border-gray-200 shadow-sm">
-            </div>
-          </div>
+                <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-semibold mb-1">Advanced Learning Algorithms</h3>
+                        <p class="text-gray-600 font-medium">DeepLearning.AI & Stanford University</p>
+                        <p class="text-gray-500 mt-1">Issued: March 2023</p>
+                        <p class="text-gray-700 mt-2">Covered advanced machine learning algorithms and techniques
+                            through the Coursera platform.</p>
+                        <a href="https://coursera.org/verify/7ZVANPB76FCM" target="_blank" rel="noopener noreferrer"
+                            class="inline-block mt-4 bg-blue-600 text-white px-5 py-2 rounded-full font-semibold hover:bg-blue-700 transition">View
+                            Certificate</a>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="images/cert2.jpg" alt="Advanced Learning Algorithms Certificate"
+                            class="w-full h-auto object-contain rounded-lg border border-gray-200 shadow-sm">
+                    </div>
+                </div>
 
-          <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md flex flex-col md:flex-row items-center gap-8">
-            <div class="md:w-1/2">
-              <h3 class="text-2xl font-semibold mb-1">Supervised Machine Learning: Regression & Classification</h3>
-              <p class="text-gray-600 font-medium">DeepLearning.AI & Stanford University</p>
-              <p class="text-gray-500 mt-1">Issued: March 2023</p>
-              <p class="text-gray-700 mt-2">Focused on foundational and advanced concepts in supervised learning, including regression and classification models.</p>
-              <a href="https://coursera.org/verify/NJH2VBRLUNF3" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 bg-blue-600 text-white px-5 py-2 rounded-full font-semibold hover:bg-blue-700 transition">View Certificate</a>
-            </div>
-            <div class="md:w-1/2">
-              <img src="images/cert1.jpg" alt="Supervised Machine Learning Certificate" class="w-full h-auto object-contain rounded-lg border border-gray-200 shadow-sm">
-            </div>
-          </div>
+                <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-semibold mb-1">Supervised Machine Learning: Regression & Classification
+                        </h3>
+                        <p class="text-gray-600 font-medium">DeepLearning.AI & Stanford University</p>
+                        <p class="text-gray-500 mt-1">Issued: March 2023</p>
+                        <p class="text-gray-700 mt-2">Focused on foundational and advanced concepts in supervised
+                            learning, including regression and classification models.</p>
+                        <a href="https://coursera.org/verify/NJH2VBRLUNF3" target="_blank" rel="noopener noreferrer"
+                            class="inline-block mt-4 bg-blue-600 text-white px-5 py-2 rounded-full font-semibold hover:bg-blue-700 transition">View
+                            Certificate</a>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="images/cert1.jpg" alt="Supervised Machine Learning Certificate"
+                            class="w-full h-auto object-contain rounded-lg border border-gray-200 shadow-sm">
+                    </div>
+                </div>
 
+            </div>
         </div>
-      </div>
     </section>
 
 
     <!-- Blog Section -->
     <section id="blogs" class="py-16 bg-white scroll-reveal">
-    <div class="container mx-auto max-w-7xl px-8">
-        <h2 class="text-4xl font-bold text-center mb-8 kinetic-text">Blogs</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-gray-100 p-6 rounded-lg shadow-sm glass-card micro-interact">
-                <h3 class="text-2xl font-semibold mb-2">Mastering Classification with Scikit-Learn</h3>
-                <p class="line-clamp-3">A guide to one of the most common tasks in machine learning, from distinguishing spam emails to predicting customer churn.</p>
-                <a href="https://dhruv-panchal.medium.com/mastering-classification-with-scikit-learn-an-in-depth-guide-5a782b7c055e" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline mt-4 inline-block">Read More</a>
+        <div class="container mx-auto max-w-7xl px-8">
+            <h2 class="text-4xl font-bold text-center mb-8 kinetic-text">Blogs</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-100 p-6 rounded-lg shadow-sm glass-card micro-interact">
+                    <h3 class="text-2xl font-semibold mb-2">Mastering Classification with Scikit-Learn</h3>
+                    <p class="line-clamp-3">A guide to one of the most common tasks in machine learning, from
+                        distinguishing spam emails to predicting customer churn.</p>
+                    <a href="https://dhruv-panchal.medium.com/mastering-classification-with-scikit-learn-an-in-depth-guide-5a782b7c055e"
+                        target="_blank" rel="noopener noreferrer"
+                        class="text-blue-600 hover:underline mt-4 inline-block">Read More</a>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-sm glass-card micro-interact">
+                    <h3 class="text-2xl font-semibold mb-2">Fine-Tuning U-Net for Satellite Image Segmentation</h3>
+                    <p class="line-clamp-3">A practical follow-up on the theoretical foundations of U-Net, applying it
+                        to real-world satellite imagery tasks.</p>
+                    <a href="https://dhruv-panchal.medium.com/fine-tuning-u-net-for-satellite-image-segmentation-773a48e39f37"
+                        target="_blank" rel="noopener noreferrer"
+                        class="text-blue-600 hover:underline mt-4 inline-block">Read More</a>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-sm glass-card micro-interact">
+                    <h3 class="text-2xl font-semibold mb-2">Mastering TensorBoard with PyTorch</h3>
+                    <p class="line-clamp-3">A hands-on guide to using TensorBoard for visualizing data and model
+                        training with the Fashion-MNIST dataset.</p>
+                    <a href="https://dhruv-panchal.medium.com/mastering-tensorboard-with-pytorch-a-hands-on-guide-with-fashion-mnist-5238258e72fa"
+                        target="_blank" rel="noopener noreferrer"
+                        class="text-blue-600 hover:underline mt-4 inline-block">Read More</a>
+                </div>
             </div>
-            <div class="bg-gray-100 p-6 rounded-lg shadow-sm glass-card micro-interact">
-                <h3 class="text-2xl font-semibold mb-2">Fine-Tuning U-Net for Satellite Image Segmentation</h3>
-                <p class="line-clamp-3">A practical follow-up on the theoretical foundations of U-Net, applying it to real-world satellite imagery tasks.</p>
-                <a href="https://dhruv-panchal.medium.com/fine-tuning-u-net-for-satellite-image-segmentation-773a48e39f37" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline mt-4 inline-block">Read More</a>
-            </div>
-            <div class="bg-gray-100 p-6 rounded-lg shadow-sm glass-card micro-interact">
-                <h3 class="text-2xl font-semibold mb-2">Mastering TensorBoard with PyTorch</h3>
-                <p class="line-clamp-3">A hands-on guide to using TensorBoard for visualizing data and model training with the Fashion-MNIST dataset.</p>
-                <a href="https://dhruv-panchal.medium.com/mastering-tensorboard-with-pytorch-a-hands-on-guide-with-fashion-mnist-5238258e72fa" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline mt-4 inline-block">Read More</a>
+            <div class="text-center mt-8">
+                <a href="https://dhruv-panchal.medium.com/" target="_blank" rel="noopener noreferrer"
+                    class="text-blue-600 hover:underline text-lg">View All Blogs on Medium</a>
             </div>
         </div>
-        <div class="text-center mt-8">
-            <a href="https://dhruv-panchal.medium.com/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline text-lg">View All Blogs on Medium</a>
+    </section>
+
+
+    <section id="connect" class="py-20 bg-gray-50">
+        <div class="container mx-auto max-w-4xl px-6 text-center">
+            <h2 class="text-5xl font-extrabold mb-8 kinetic-text text-gray-900">Connect With Me</h2>
+            <p class="text-xl mb-12 text-gray-700">Feel free to reach out via any of the platforms below!</p>
+
+            <div class="flex flex-wrap justify-center gap-10">
+                <!-- Email -->
+                <a href="mailto:panchaldhruv27223@gmail.com" aria-label="Email"
+                    class="flex flex-col items-center space-y-2 text-blue-600 hover:text-blue-800 transition">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                        </path>
+                    </svg>
+                    <span class="text-lg font-semibold">panchaldhruv27223@gmail.com</span>
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com/panchaldhruv27223" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub"
+                    class="flex flex-col items-center space-y-2 text-gray-900 hover:text-gray-700 transition">
+                    <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.49v-1.84c-2.78.6-3.36-1.34-3.36-1.34-.46-1.16-1.12-1.47-1.12-1.47-.91-.62.07-.61.07-.61 1.01.07 1.54 1.04 1.54 1.04.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0112 6.8c.85 0 1.71.11 2.51.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.67.94.67 1.9v2.81c0 .27.16.58.67.49A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z" />
+                    </svg>
+                    <span class="text-lg font-semibold">GitHub</span>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/dhruv-panchal-ab7135217/" target="_blank" rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                    class="flex flex-col items-center space-y-2 text-blue-700 hover:text-blue-900 transition">
+                    <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2zm-1 3h2v10H3V7zm4 0h2v10H7V7zm4 0h2v5h2v5h-4V7zm6 0h2v10h-2V7zm-10.5-1a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" />
+                    </svg>
+                    <span class="text-lg font-semibold">LinkedIn</span>
+                </a>
+
+                <!-- Medium -->
+                <a href="https://dhruv-panchal.medium.com/" target="_blank" rel="noopener noreferrer"
+                    aria-label="Medium"
+                    class="flex flex-col items-center space-y-2 text-gray-900 hover:text-gray-700 transition">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2a10 10 0 00-3.16 19.48l-.66-2.85A8 8 0 1120 12h-2a6 6 0 10-12 0 6 6 0 0010.24 4.24l2.36 1.84A10 10 0 0012 2z">
+                        </path>
+                    </svg>
+                    <span class="text-lg font-semibold">Medium</span>
+                </a>
+            </div>
         </div>
-    </div>
-</section>
-
-
-<section id="connect" class="py-20 bg-gray-50">
-  <div class="container mx-auto max-w-4xl px-6 text-center">
-    <h2 class="text-5xl font-extrabold mb-8 kinetic-text text-gray-900">Connect With Me</h2>
-    <p class="text-xl mb-12 text-gray-700">Feel free to reach out via any of the platforms below!</p>
-    
-    <div class="flex flex-wrap justify-center gap-10">
-      <!-- Email -->
-      <a href="mailto:panchaldhruv27223@gmail.com" aria-label="Email" class="flex flex-col items-center space-y-2 text-blue-600 hover:text-blue-800 transition">
-        <svg class="w-12 h-12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-          <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-        </svg>
-        <span class="text-lg font-semibold">panchaldhruv27223@gmail.com</span>
-      </a>
-
-      <!-- GitHub -->
-      <a href="https://github.com/panchaldhruv27223" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="flex flex-col items-center space-y-2 text-gray-900 hover:text-gray-700 transition">
-        <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24" >
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.49v-1.84c-2.78.6-3.36-1.34-3.36-1.34-.46-1.16-1.12-1.47-1.12-1.47-.91-.62.07-.61.07-.61 1.01.07 1.54 1.04 1.54 1.04.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0112 6.8c.85 0 1.71.11 2.51.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.67.94.67 1.9v2.81c0 .27.16.58.67.49A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/>
-        </svg>
-        <span class="text-lg font-semibold">GitHub</span>
-      </a>
-
-      <!-- LinkedIn -->
-      <a href="https://www.linkedin.com/in/dhruv-panchal-ab7135217/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="flex flex-col items-center space-y-2 text-blue-700 hover:text-blue-900 transition">
-        <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2zm-1 3h2v10H3V7zm4 0h2v10H7V7zm4 0h2v5h2v5h-4V7zm6 0h2v10h-2V7zm-10.5-1a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"/>
-        </svg>
-        <span class="text-lg font-semibold">LinkedIn</span>
-      </a>
-
-      <!-- Medium -->
-      <a href="https://dhruv-panchal.medium.com/" target="_blank" rel="noopener noreferrer" aria-label="Medium" class="flex flex-col items-center space-y-2 text-gray-900 hover:text-gray-700 transition">
-        <svg class="w-12 h-12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-          <path d="M12 2a10 10 0 00-3.16 19.48l-.66-2.85A8 8 0 1120 12h-2a6 6 0 10-12 0 6 6 0 0010.24 4.24l2.36 1.84A10 10 0 0012 2z"></path>
-        </svg>
-        <span class="text-lg font-semibold">Medium</span>
-      </a>
-    </div>
-  </div>
-</section>
+    </section>
 
 
     <!-- Footer -->
@@ -378,4 +514,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
