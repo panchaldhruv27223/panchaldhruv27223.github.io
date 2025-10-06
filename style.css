@@ -118,12 +118,14 @@ section {
     overflow: hidden;
     white-space: nowrap;
     border-right: 0.15em solid white;
-    animation: typing 3.5s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
+    /* Updated the steps to match the character count */
+    animation: typing 3.5s steps(49, end) forwards, blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
     from { width: 0; }
-    to { width: 100%; }
+    /* Updated width to the exact character count */
+    to { width: 57ch; }
 }
 
 @keyframes blink-caret {
@@ -156,6 +158,65 @@ section {
     padding-top: 1rem;
 }
 
+/* Skill Tags */
+.skill-tag {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.skill-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Kinetic Text Animation */
+.kinetic-text {
+    background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Scroll Reveal Animation */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Enhanced Glass Card Effect */
+.glass-card {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px 0 rgba(31, 38, 135, 0.5);
+}
+
 /* Responsive Navigation */
 @media (max-width: 768px) {
     nav .container {
@@ -166,5 +227,10 @@ section {
         flex-direction: column;
         align-items: center;
         gap: 0.5rem;
+    }
+    
+    .skill-tag {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
     }
 }
