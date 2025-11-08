@@ -16,9 +16,17 @@
 <body class="bg-gray-50 font-sans text-gray-800 transition-all duration-500">
     <!-- Navbar -->
     <nav class="bg-blue-900 text-white fixed w-full top-0 z-40 shadow-lg">
-        <div class="container mx-auto max-w-7xl px-8 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold">Dhruv Panchal</h1>
-            <div class="space-x-4 flex items-center">
+        <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-xl sm:text-2xl font-bold">Dhruv Panchal</h1>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none" aria-label="Toggle menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-4 items-center">
                 <a href="#home" class="hover:text-blue-300 transition nav-link">Home</a>
                 <a href="#about" class="hover:text-blue-300 transition nav-link">About</a>
                 <a href="#education" class="hover:text-blue-300 transition nav-link">Education</a>
@@ -30,34 +38,48 @@
                 <a href="#contact" class="hover:text-blue-300 transition nav-link">Contact</a>
             </div>
         </div>
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-blue-900 border-t border-blue-800">
+            <div class="px-4 py-2 space-y-2">
+                <a href="#home" class="block py-2 hover:text-blue-300 transition nav-link">Home</a>
+                <a href="#about" class="block py-2 hover:text-blue-300 transition nav-link">About</a>
+                <a href="#education" class="block py-2 hover:text-blue-300 transition nav-link">Education</a>
+                <a href="#experience" class="block py-2 hover:text-blue-300 transition nav-link">Experience</a>
+                <a href="#skills" class="block py-2 hover:text-blue-300 transition nav-link">Skills</a>
+                <a href="#projects" class="block py-2 hover:text-blue-300 transition nav-link">Projects</a>
+                <a href="#certificates" class="block py-2 hover:text-blue-300 transition nav-link">Certificates</a>
+                <a href="#blogs" class="block py-2 hover:text-blue-300 transition nav-link">Blogs</a>
+                <a href="#contact" class="block py-2 hover:text-blue-300 transition nav-link">Contact</a>
+            </div>
+        </div>
     </nav>
 
     <!-- Hero Section with 3D Background -->
     <section id="home"
         class="min-h-screen flex items-center bg-gradient-to-r from-blue-800 to-blue-600 text-white relative overflow-hidden">
         <canvas id="three-bg" class="absolute inset-0 z-0"></canvas>
-        <div class="container mx-auto max-w-7xl px-8 text-center relative z-10">
-            <h1 class="text-5xl font-bold mb-4 kinetic-text">Dhruv Panchal</h1>
-            <p class="text-xl mb-6 typewriter">• AI/ML Researcher • Machine Learning Engineer • CV/NLP Enthusiast</p>
-            <div class="space-x-4">
+        <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 kinetic-text">Dhruv Panchal</h1>
+            <p class="text-base sm:text-lg md:text-xl mb-6 typewriter">• AI/ML Researcher • Machine Learning Engineer • CV/NLP Enthusiast</p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 sm:space-x-4">
                 <a href="#projects"
-                    class="bg-white text-blue-900 px-6 py-3 rounded-full font-semibold hover:bg-blue-200 transition micro-interact">View
+                    class="bg-white text-blue-900 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold hover:bg-blue-200 transition micro-interact text-sm sm:text-base">View
                     My Work</a>
                 <a href="DhruvPanchal.pdf"
-                    class="bg-transparent border-2 border-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-900 transition micro-interact"
+                    class="bg-transparent border-2 border-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold hover:bg-white hover:text-blue-900 transition micro-interact text-sm sm:text-base"
                     download>Download CV</a>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-white scroll-reveal">
-        <div class="container mx-auto max-w-7xl px-8">
-            <h2 class="text-4xl font-bold text-center mb-16 kinetic-text">About Me</h2>
-            <div class="flex flex-col md:flex-row items-center justify-center gap-16">
+    <section id="about" class="py-12 sm:py-16 md:py-20 bg-white scroll-reveal">
+        <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 md:mb-16 kinetic-text">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-8 sm:gap-12 md:gap-16">
                 
-                <div class="md:w-3/5 text-left">
-                    <p class="text-lg leading-relaxed text-gray-700">
+                <div class="w-full md:w-3/5 text-left px-4 sm:px-0">
+                    <p class="text-base sm:text-lg leading-relaxed text-gray-700">
                         I am a passionate Machine Learning researcher and practitioner currently pursuing my M.Tech in Machine Learning at Dhirubhai Ambani Institute of Information and Communication Technology (DA-IICT). My academic journey is distinguished by excellence, having been awarded the <b>Gold Medal</b> for my Bachelor's degree from Gandhinagar Institute of Technology. I specialize in developing cutting-edge solutions at the intersection of computer vision, multimodal AI, and quantum machine learning.
                     </p>
                     <p class="text-lg leading-relaxed text-gray-700 mt-6">
@@ -68,11 +90,11 @@
                     </p>
                 </div>
 
-                <div class="md:w-2/5 flex justify-center">
+                <div class="w-full md:w-2/5 flex justify-center">
                     <div class="relative">
-                        <div class="absolute -top-3 -left-3 w-80 h-80 bg-blue-100 rounded-full"></div>
+                        <div class="absolute -top-3 -left-3 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 bg-blue-100 rounded-full"></div>
                         <img src="images/profile.jpg" alt="Dhruv Panchal"
-                            class="relative w-80 h-80 rounded-full object-cover mx-auto shadow-xl border-4 border-white">
+                            class="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full object-cover mx-auto shadow-xl border-4 border-white">
                     </div>
                 </div>
 
@@ -81,18 +103,18 @@
     </section>
 
     <!-- Education Section -->
-    <section id="education" class="py-16 bg-gray-100 scroll-reveal">
-        <div class="container mx-auto max-w-7xl px-8">
-            <h2 class="text-4xl font-bold text-center mb-10 kinetic-text">Education</h2>
+    <section id="education" class="py-12 sm:py-16 bg-gray-100 scroll-reveal">
+        <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-10 kinetic-text">Education</h2>
             <div class="space-y-8">
-                <div class="bg-white p-6 rounded-lg shadow-sm glass-card micro-interact">
-                    <h3 class="text-2xl font-semibold mb-2">Master of Technology in Machine Learning</h3>
+                <div class="bg-white p-4 sm:p-6 rounded-lg shadow-sm glass-card micro-interact">
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-2">Master of Technology in Machine Learning</h3>
                     <p class="font-semibold">Dhirubhai Ambani Institute of Information and Communication Technology</p>
                     <p class="mt-2">Jul 2024 - Present</p>
                     <p class="mt-2">CGPA: 9.58</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm glass-card micro-interact">
-                    <h3 class="text-2xl font-semibold mb-2">Bachelor of Engineering in Information Technology</h3>
+                <div class="bg-white p-4 sm:p-6 rounded-lg shadow-sm glass-card micro-interact">
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-2">Bachelor of Engineering in Information Technology</h3>
                     <p class="font-semibold">Gandhinagar Institute of Technology</p>
                     <p class="mt-2">Aug 2020 - Jul 2024</p>
                     <p class="mt-2">CGPA: 9.01</p>
@@ -102,12 +124,12 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-16 bg-white scroll-reveal">
-        <div class="container mx-auto max-w-7xl px-8">
-            <h2 class="text-4xl font-bold text-center mb-10 kinetic-text">Experience</h2>
-            <div class="space-y-8">
-                <div class="bg-gray-100 p-6 rounded-lg shadow-sm glass-card micro-interact">
-                    <h3 class="text-2xl font-semibold mb-2">Intelligent Assistance with Face Recognition</h3>
+    <section id="experience" class="py-12 sm:py-16 bg-white scroll-reveal">
+        <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-10 kinetic-text">Experience</h2>
+            <div class="space-y-6 sm:space-y-8">
+                <div class="bg-gray-100 p-4 sm:p-6 rounded-lg shadow-sm glass-card micro-interact">
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-2">Intelligent Assistance with Face Recognition</h3>
                     <p class="font-semibold">Kody Technolab Ltd.</p>
                     <p class="mt-2">Jan 2024 - Jun 2024</p>
                     <p class="mt-2">Engineered an intelligent AI assistant system that seamlessly integrates facial recognition with natural language processing capabilities. The system provides personalized user experiences by identifying individuals and responding to college-related queries with contextual understanding. Developed using Python, machine learning frameworks, deep learning models, OpenCV for computer vision, and advanced NLP techniques, resulting in a robust multi-modal AI solution.</p>
@@ -115,8 +137,8 @@
                         target="_blank" rel="noopener noreferrer"
                         class="text-blue-600 hover:underline mt-4 inline-block">View on GitHub</a>
                 </div>
-                <div class="bg-gray-100 p-6 rounded-lg shadow-sm glass-card micro-interact">
-                    <h3 class="text-2xl font-semibold mb-2">Predict The Chance of Admission</h3>
+                <div class="bg-gray-100 p-4 sm:p-6 rounded-lg shadow-sm glass-card micro-interact">
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-2">Predict The Chance of Admission</h3>
                     <p class="font-semibold">Snapfix Ltd.</p>
                     <p class="mt-2">Jul 2023 - Aug 2023</p>
                     <p class="mt-2">Designed and implemented a comprehensive predictive analytics solution for educational admission probability estimation. Leveraged linear regression algorithms and extensive feature engineering to analyze historical admission data, creating an accurate model that helps prospective students assess their admission chances. Built a complete end-to-end pipeline using pandas, NumPy, matplotlib, seaborn, and scikit-learn, with AWS deployment for scalable access. This project significantly enhanced my expertise in statistical modeling and machine learning algorithm implementation.</p>
@@ -131,20 +153,20 @@
     </section>
 
     <!-- Skills Section (Bento Grid) -->
-    <section id="skills" class="py-16 bg-gray-100 scroll-reveal">
-        <div class="container mx-auto max-w-7xl px-8">
-            <h2 class="text-4xl font-bold text-center mb-12 kinetic-text">Core Competencies</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <section id="skills" class="py-12 sm:py-16 bg-gray-100 scroll-reveal">
+        <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 kinetic-text">Core Competencies</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
 
-                <div class="bg-white p-8 rounded-lg shadow-md glass-card text-center">
+                <div class="bg-white p-6 sm:p-8 rounded-lg shadow-md glass-card text-center">
                     <div class="flex justify-center mb-4">
-                        <svg class="w-12 h-12 text-blue-600" xmlns="http://www.w.org/2000/svg" fill="none"
+                        <svg class="w-10 h-10 sm:w-12 sm:h-12 text-blue-600" xmlns="http://www.w.org/2000/svg" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">Programming & ML Frameworks</h3>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-4 text-gray-800">Programming & ML Frameworks</h3>
                     <div class="flex flex-wrap justify-center gap-2">
                         <span class="skill-tag">Python</span>
                         <span class="skill-tag">PyTorch</span>
@@ -158,15 +180,15 @@
                     </div>
                 </div>
 
-                <div class="bg-white p-8 rounded-lg shadow-md glass-card text-center">
+                <div class="bg-white p-6 sm:p-8 rounded-lg shadow-md glass-card text-center">
                     <div class="flex justify-center mb-4">
-                        <svg class="w-12 h-12 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        <svg class="w-10 h-10 sm:w-12 sm:h-12 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">Tools & Technologies</h3>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-4 text-gray-800">Tools & Technologies</h3>
                     <div class="flex flex-wrap justify-center gap-2">
                         <span class="skill-tag">AWS</span>
                         <span class="skill-tag">MongoDB</span>
@@ -181,15 +203,15 @@
                     </div>
                 </div>
 
-                <div class="bg-white p-8 rounded-lg shadow-md glass-card text-center">
+                <div class="bg-white p-6 sm:p-8 rounded-lg shadow-md glass-card text-center">
                     <div class="flex justify-center mb-4">
-                        <svg class="w-12 h-12 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        <svg class="w-10 h-10 sm:w-12 sm:h-12 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">Professional Skills</h3>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-4 text-gray-800">Professional Skills</h3>
                     <div class="flex flex-wrap justify-center gap-2">
                         <span class="skill-tag">Project Leadership</span>
                         <span class="skill-tag">Problem Solving</span>
@@ -230,15 +252,15 @@
     </section> -->
 
 
-    <section id="projects" class="py-16 bg-white scroll-reveal">
-        <div class="container mx-auto max-w-7xl px-8">
-            <h2 class="text-4xl font-bold text-center mb-8 kinetic-text">Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 bento-grid">
+    <section id="projects" class="py-12 sm:py-16 bg-white scroll-reveal">
+        <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-6 sm:mb-8 kinetic-text">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 bento-grid">
 
-                <div class="bg-gray-100 p-6 rounded-lg shadow-sm glass-card project-card micro-interact cursor-pointer"
+                <div class="bg-gray-100 p-4 sm:p-6 rounded-lg shadow-sm glass-card project-card micro-interact cursor-pointer"
                     data-details="Led the development of a hybrid YOLOS/DETR + SAM pipeline, improving IoU by 23%. Created the first India-specific rooftop dataset with 5000+ annotated aerial tiles. Tech: Python, PyTorch, Transformers.">
-                    <span class="text-4xl">🏠</span>
-                    <h3 class="text-2xl font-semibold mb-2">High-Precision Rooftop Segmentation</h3>
+                    <span class="text-3xl sm:text-4xl">🏠</span>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-2">High-Precision Rooftop Segmentation</h3>
                     <p class="line-clamp-3">Developed a novel hybrid pipeline using YOLOS and SAM to improve rooftop
                         segmentation on high-resolution satellite images.</p>
                     <a href="https://github.com/panchaldhruv27223/Solar_Rooftop_Detection" target="_blank"
@@ -246,10 +268,10 @@
                         GitHub</a>
                 </div>
 
-                <div class="bg-gray-100 p-6 rounded-lg shadow-sm glass-card project-card micro-interact cursor-pointer"
+                <div class="bg-gray-100 p-4 sm:p-6 rounded-lg shadow-sm glass-card project-card micro-interact cursor-pointer"
                     data-details="Engineered a fully custom Vision-Language architecture integrating a SigLIP vision transformer with a Gemma decoder. Developed an inference-ready pipeline with KV caching and top-p decoding. Tech: Python, PyTorch, Transformers.">
-                    <span class="text-4xl">👁️</span>
-                    <h3 class="text-2xl font-semibold mb-2">Vision-Language Model (PaliGemma)</h3>
+                    <span class="text-3xl sm:text-4xl">👁️</span>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-2">Vision-Language Model (PaliGemma)</h3>
                     <p class="line-clamp-3">Engineered a custom architecture integrating SigLIP and Gemma for
                         image-conditioned text generation and visual Q&A systems.</p>
                     <a href="https://github.com/panchaldhruv27223/Vision-Language-Model" target="_blank"
@@ -257,10 +279,10 @@
                         GitHub</a>
                 </div>
 
-                <div class="bg-gray-100 p-6 rounded-lg shadow-sm glass-card project-card micro-interact cursor-pointer"
+                <div class="bg-gray-100 p-4 sm:p-6 rounded-lg shadow-sm glass-card project-card micro-interact cursor-pointer"
                     data-details="Developed hybrid Quantum Neural Networks achieving 81.12% accuracy on CIFAR-10. Engineered 15+ quantum circuits and conducted an ablation study on model performance. Tech: Python, Quantum ML, Pennylane, TensorFlow.">
-                    <span class="text-4xl">⚛️</span>
-                    <h3 class="text-2xl font-semibold mb-2">Quanvolution Neural Network</h3>
+                    <span class="text-3xl sm:text-4xl">⚛️</span>
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-2">Quanvolution Neural Network</h3>
                     <p class="line-clamp-3">Developed hybrid QNNs for image classification, achieving 81.12% accuracy on
                         CIFAR-10, rivaling classical CNNs.</p>
                     <a href="https://github.com/panchaldhruv27223" target="_blank" rel="noopener noreferrer"
@@ -324,15 +346,15 @@
 </section> -->
 
 
-    <section id="certificates" class="py-16 bg-gray-100">
+    <section id="certificates" class="py-12 sm:py-16 bg-gray-100 scroll-reveal">
         <div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center mb-12">Certificates</h2>
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12">Certificates</h2>
 
             <div class="space-y-10">
 
-                <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md flex flex-col md:flex-row items-center gap-8">
-                    <div class="md:w-1/2">
-                        <h3 class="text-2xl font-semibold mb-1">Data Science Masters 2.0</h3>
+                <div class="bg-white p-4 sm:p-6 md:p-8 rounded-xl shadow-md flex flex-col md:flex-row items-center gap-6 sm:gap-8">
+                    <div class="w-full md:w-1/2">
+                        <h3 class="text-xl sm:text-2xl font-semibold mb-1">Data Science Masters 2.0</h3>
                         <p class="text-gray-600 font-medium">Physics Wallah</p>
                         <p class="text-gray-500 mt-1">Issued: December 2024</p>
                         <p class="text-gray-700 mt-2">Completed the comprehensive Data Science Masters 2.0 Program,
@@ -348,9 +370,9 @@
                     </div>
                 </div>
 
-                <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md flex flex-col md:flex-row items-center gap-8">
-                    <div class="md:w-1/2">
-                        <h3 class="text-2xl font-semibold mb-1">Advanced Learning Algorithms</h3>
+                <div class="bg-white p-4 sm:p-6 md:p-8 rounded-xl shadow-md flex flex-col md:flex-row items-center gap-6 sm:gap-8">
+                    <div class="w-full md:w-1/2">
+                        <h3 class="text-xl sm:text-2xl font-semibold mb-1">Advanced Learning Algorithms</h3>
                         <p class="text-gray-600 font-medium">DeepLearning.AI & Stanford University</p>
                         <p class="text-gray-500 mt-1">Issued: March 2023</p>
                         <p class="text-gray-700 mt-2">Covered advanced machine learning algorithms and techniques
@@ -365,9 +387,9 @@
                     </div>
                 </div>
 
-                <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md flex flex-col md:flex-row items-center gap-8">
-                    <div class="md:w-1/2">
-                        <h3 class="text-2xl font-semibold mb-1">Supervised Machine Learning: Regression & Classification
+                <div class="bg-white p-4 sm:p-6 md:p-8 rounded-xl shadow-md flex flex-col md:flex-row items-center gap-6 sm:gap-8">
+                    <div class="w-full md:w-1/2">
+                        <h3 class="text-xl sm:text-2xl font-semibold mb-1">Supervised Machine Learning: Regression & Classification
                         </h3>
                         <p class="text-gray-600 font-medium">DeepLearning.AI & Stanford University</p>
                         <p class="text-gray-500 mt-1">Issued: March 2023</p>
@@ -389,28 +411,28 @@
 
 
     <!-- Blog Section -->
-    <section id="blogs" class="py-16 bg-white scroll-reveal">
-        <div class="container mx-auto max-w-7xl px-8">
-            <h2 class="text-4xl font-bold text-center mb-8 kinetic-text">Blogs</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-100 p-6 rounded-lg shadow-sm glass-card micro-interact">
-                    <h3 class="text-2xl font-semibold mb-2">Mastering Classification with Scikit-Learn</h3>
+    <section id="blogs" class="py-12 sm:py-16 bg-white scroll-reveal">
+        <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-6 sm:mb-8 kinetic-text">Blogs</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                <div class="bg-gray-100 p-4 sm:p-6 rounded-lg shadow-sm glass-card micro-interact">
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-2">Mastering Classification with Scikit-Learn</h3>
                     <p class="line-clamp-3">A guide to one of the most common tasks in machine learning, from
                         distinguishing spam emails to predicting customer churn.</p>
                     <a href="https://dhruv-panchal.medium.com/mastering-classification-with-scikit-learn-an-in-depth-guide-5a782b7c055e"
                         target="_blank" rel="noopener noreferrer"
                         class="text-blue-600 hover:underline mt-4 inline-block">Read More</a>
                 </div>
-                <div class="bg-gray-100 p-6 rounded-lg shadow-sm glass-card micro-interact">
-                    <h3 class="text-2xl font-semibold mb-2">Fine-Tuning U-Net for Satellite Image Segmentation</h3>
+                <div class="bg-gray-100 p-4 sm:p-6 rounded-lg shadow-sm glass-card micro-interact">
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-2">Fine-Tuning U-Net for Satellite Image Segmentation</h3>
                     <p class="line-clamp-3">A practical follow-up on the theoretical foundations of U-Net, applying it
                         to real-world satellite imagery tasks.</p>
                     <a href="https://dhruv-panchal.medium.com/fine-tuning-u-net-for-satellite-image-segmentation-773a48e39f37"
                         target="_blank" rel="noopener noreferrer"
                         class="text-blue-600 hover:underline mt-4 inline-block">Read More</a>
                 </div>
-                <div class="bg-gray-100 p-6 rounded-lg shadow-sm glass-card micro-interact">
-                    <h3 class="text-2xl font-semibold mb-2">Mastering TensorBoard with PyTorch</h3>
+                <div class="bg-gray-100 p-4 sm:p-6 rounded-lg shadow-sm glass-card micro-interact">
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-2">Mastering TensorBoard with PyTorch</h3>
                     <p class="line-clamp-3">A hands-on guide to using TensorBoard for visualizing data and model
                         training with the Fashion-MNIST dataset.</p>
                     <a href="https://dhruv-panchal.medium.com/mastering-tensorboard-with-pytorch-a-hands-on-guide-with-fashion-mnist-5238258e72fa"
@@ -426,22 +448,22 @@
     </section>
 
 
-    <section id="contact" class="py-20 bg-gray-50">
-        <div class="container mx-auto max-w-4xl px-6 text-center">
-            <h2 class="text-5xl font-extrabold mb-8 kinetic-text text-gray-900">Connect With Me</h2>
-            <p class="text-xl mb-12 text-gray-700">Feel free to reach out via any of the platforms below!</p>
+    <section id="contact" class="py-12 sm:py-16 md:py-20 bg-gray-50 scroll-reveal">
+        <div class="container mx-auto max-w-4xl px-4 sm:px-6 text-center">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 sm:mb-8 kinetic-text text-gray-900">Connect With Me</h2>
+            <p class="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 text-gray-700">Feel free to reach out via any of the platforms below!</p>
 
-            <div class="flex flex-wrap justify-center gap-10">
+            <div class="flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-10">
                 <!-- Email -->
                 <a href="mailto:panchaldhruv27223@gmail.com" aria-label="Email"
                     class="flex flex-col items-center space-y-2 text-blue-600 hover:text-blue-800 transition">
-                    <svg class="w-12 h-12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    <svg class="w-10 h-10 sm:w-12 sm:h-12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" viewBox="0 0 24 24">
                         <path
                             d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
                         </path>
                     </svg>
-                    <span class="text-lg font-semibold">panchaldhruv27223@gmail.com</span>
+                    <span class="text-sm sm:text-base md:text-lg font-semibold break-all">panchaldhruv27223@gmail.com</span>
                 </a>
 
                 <!-- GitHub -->
@@ -495,7 +517,7 @@
 
     <!-- Footer -->
     <footer class="bg-blue-900 text-white py-6">
-        <div class="container mx-auto max-w-7xl px-8 text-center">
+        <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
             <p>© 2025 Dhruv Panchal. All rights reserved.</p>
         </div>
     </footer>

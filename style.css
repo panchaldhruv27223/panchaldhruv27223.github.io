@@ -105,6 +105,8 @@ section {
     border-radius: 50%;
     transform: translate(-50%, -50%);
     transition: width 0.4s ease, height 0.4s ease;
+    pointer-events: none; /* Don't block clicks on links */
+    z-index: 1; /* Behind clickable elements */
 }
 
 .micro-interact:hover::after {
@@ -118,19 +120,26 @@ section {
     overflow: hidden;
     white-space: nowrap;
     border-right: 0.15em solid white;
-    /* Updated the steps to match the character count */
-    animation: typing 3.5s steps(49, end) forwards, blink-caret 0.75s step-end infinite;
+    /* Updated the steps to match the character count (68 characters) */
+    animation: typing 4s steps(68, end) forwards, 
+               blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
     from { width: 0; }
-    /* Updated width to the exact character count */
-    to { width: 57ch; }
+    /* Updated width to match the text length */
+    to { width: 68ch; }
 }
 
 @keyframes blink-caret {
     from, to { border-color: transparent; }
     50% { border-color: white; }
+}
+
+/* Class to hide cursor after animation completes (added by JavaScript) */
+.typewriter.no-cursor {
+    border-right: none;
+    animation: typing 4s steps(68, end) forwards;
 }
 
 /* Project Card Expansion */
@@ -143,6 +152,14 @@ section {
     cursor: pointer;
 }
 
+.project-card a {
+    position: relative;
+    z-index: 30; /* Above micro-interact overlay and card */
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    display: inline-block; /* Ensure proper click area */
+}
+
 .project-card.expanded {
     height: auto;
 }
@@ -150,12 +167,14 @@ section {
 .project-card .details {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.3s ease, padding-top 0.3s ease;
 }
 
 .project-card.expanded .details {
-    max-height: 200px;
+    max-height: 1000px;
     padding-top: 1rem;
+    opacity: 1;
 }
 
 /* Skill Tags */
