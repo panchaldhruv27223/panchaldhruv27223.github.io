@@ -204,6 +204,15 @@ section {
     opacity: 1;
 }
 
+/* Line clamp utility for text truncation */
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 /* Skill Tags */
 .skill-tag {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);

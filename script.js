@@ -55,10 +55,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     animate3D();
 
+                    // Debounced resize handler for better performance
+                    let resizeTimeout;
                     window.addEventListener('resize', () => {
-                        camera.aspect = window.innerWidth / window.innerHeight;
-                        camera.updateProjectionMatrix();
-                        renderer.setSize(window.innerWidth, window.innerHeight);
+                        clearTimeout(resizeTimeout);
+                        resizeTimeout = setTimeout(() => {
+                            if (camera && renderer) {
+                                camera.aspect = window.innerWidth / window.innerHeight;
+                                camera.updateProjectionMatrix();
+                                renderer.setSize(window.innerWidth, window.innerHeight);
+                            }
+                        }, 150); // Debounce resize events
                     });
                 } catch (threeError) {
                     console.error('Error initializing Three.js:', threeError);
@@ -81,22 +88,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Scroll reveal animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        if ('IntersectionObserver' in window) {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                }
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.scroll-reveal').forEach(el => {
+                observer.observe(el);
             });
-        }, observerOptions);
-
-        document.querySelectorAll('.scroll-reveal').forEach(el => {
-            observer.observe(el);
-        });
+        } else {
+            // Fallback for browsers that don't support IntersectionObserver
+            document.querySelectorAll('.scroll-reveal').forEach(el => {
+                el.classList.add('revealed');
+            });
+        }
 
         // Project card toggle with enhanced animation
         const projectCards = document.querySelectorAll('.project-card');
