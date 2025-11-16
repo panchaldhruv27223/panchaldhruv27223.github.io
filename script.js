@@ -15,10 +15,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     renderer.setSize(window.innerWidth, window.innerHeight);
                     camera.position.z = 5;
 
+                    // Detect mobile device for smaller objects
+                    const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                    
+                    // Adjust object sizes based on device - smaller on mobile
+                    const sizeMultiplier = isMobile ? 0.5 : 1; // 50% smaller on mobile
+                    
                     // Create multiple geometric shapes for a more dynamic background
-                    const geometry1 = new THREE.DodecahedronGeometry(2);
-                    const geometry2 = new THREE.OctahedronGeometry(1.5);
-                    const geometry3 = new THREE.TetrahedronGeometry(1);
+                    const geometry1 = new THREE.DodecahedronGeometry(2 * sizeMultiplier);
+                    const geometry2 = new THREE.OctahedronGeometry(1.5 * sizeMultiplier);
+                    const geometry3 = new THREE.TetrahedronGeometry(1 * sizeMultiplier);
                     
                     const material1 = new THREE.MeshBasicMaterial({ color: 0x3b82f6, wireframe: true });
                     const material2 = new THREE.MeshBasicMaterial({ color: 0x8b5cf6, wireframe: true });
@@ -28,8 +34,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     const shape2 = new THREE.Mesh(geometry2, material2);
                     const shape3 = new THREE.Mesh(geometry3, material3);
                     
-                    shape2.position.set(3, 2, 0);
-                    shape3.position.set(-3, -2, 0);
+                    // Adjust positions for mobile - closer together and smaller spread
+                    const positionMultiplier = isMobile ? 0.6 : 1;
+                    shape2.position.set(3 * positionMultiplier, 2 * positionMultiplier, 0);
+                    shape3.position.set(-3 * positionMultiplier, -2 * positionMultiplier, 0);
                     
                     scene.add(shape1);
                     scene.add(shape2);
@@ -60,13 +68,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Continue with rest of the code regardless of Three.js status
 
-        // Typewriter cursor removal after animation completes
+        // Typewriter cursor removal after animation completes (desktop only)
         const typewriterElement = document.querySelector('.typewriter');
         if (typewriterElement) {
-            // Wait for typing animation to complete (4 seconds) then remove cursor
-            setTimeout(() => {
-                typewriterElement.classList.add('no-cursor');
-            }, 4000); // 4 seconds matches the typing animation duration
+            const isMobile = window.innerWidth <= 768;
+            if (!isMobile) {
+                // Only add cursor removal on desktop where animation plays
+                setTimeout(() => {
+                    typewriterElement.classList.add('no-cursor');
+                }, 4000); // 4 seconds matches the typing animation duration
+            }
         }
 
         // Scroll reveal animation

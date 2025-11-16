@@ -40,6 +40,19 @@ section {
     padding-top: 80px;
 }
 
+/* Mobile-specific section padding */
+@media (max-width: 768px) {
+    section {
+        padding-top: 70px;
+    }
+    
+    #home {
+        padding-top: 0;
+        min-height: 100vh;
+        min-height: 100dvh; /* Dynamic viewport height for mobile */
+    }
+}
+
 /* Glassmorphism for Cards */
 .glass-card {
     background: rgba(255, 255, 255, 0.1);
@@ -123,6 +136,20 @@ section {
     /* Updated the steps to match the character count (68 characters) */
     animation: typing 4s steps(68, end) forwards, 
                blink-caret 0.75s step-end infinite;
+    max-width: 100%;
+    word-break: break-word;
+}
+
+/* Mobile typewriter adjustments - remove animation on mobile */
+@media (max-width: 768px) {
+    .typewriter {
+        white-space: normal;
+        border-right: none !important;
+        animation: none !important;
+        width: auto !important;
+        opacity: 1 !important;
+        display: block;
+    }
 }
 
 @keyframes typing {
@@ -252,4 +279,38 @@ section {
         font-size: 0.75rem;
         padding: 0.4rem 0.8rem;
     }
+    
+    /* Hero section mobile improvements */
+    #home {
+        padding: 20px 0;
+    }
+    
+    #home h1 {
+        font-size: 2rem !important;
+        margin-bottom: 1rem;
+        padding: 0 1rem;
+    }
+    
+    #home p {
+        font-size: 0.875rem !important;
+        padding: 0 1rem;
+        line-height: 1.5;
+    }
+    
+    #home .container > div {
+        padding: 2rem 0;
+    }
+    
+    /* Better touch targets for mobile buttons */
+    #home a {
+        min-height: 44px; /* iOS recommended touch target */
+        min-width: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 20px !important;
+        font-size: 0.875rem;
+    }
+    
+    /* 3D canvas visible on mobile with smaller objects (handled in JavaScript) */
 }
