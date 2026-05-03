@@ -1,0 +1,59 @@
+# Dhruv Panchal
+
+> AI/ML Researcher and Machine Learning Engineer based in Ahmedabad, Gujarat, India. M.Tech in Machine Learning at DA-IICT (CGPA 9.58). Gold Medalist in B.E. Information Technology. Specializes in Computer Vision, Multimodal AI, Vision-Language Models, and Quantum Machine Learning.
+
+## Quick facts
+
+- **Full name:** Dhruv Bharatbhai Panchal
+- **Role:** AI/ML Researcher · Machine Learning Engineer
+- **Currently:** M.Tech in Machine Learning at Dhirubhai Ambani Institute of Information and Communication Technology (DA-IICT), CGPA 9.58
+- **Previous:** B.E. Information Technology, Gandhinagar Institute of Technology (Gold Medalist, CGPA 9.01)
+- **Location:** Ahmedabad, Gujarat, India
+- **Email:** dhruv.panchal27223@gmail.com
+- **Website:** https://panchaldhruv27223.github.io/
+
+## Research focus
+
+- Computer Vision: object detection, image segmentation, satellite imagery analysis
+- Multimodal AI: vision-language models combining SigLIP and Gemma
+- Quantum Machine Learning: quanvolutional filters, hybrid quantum-classical CNNs
+- Generative AI: agentic systems, RAG, multi-agent orchestration
+
+## Notable projects
+
+- [Rooftop Segmentation](https://github.com/panchaldhruv27223/Solar_Rooftop_Detection): Hybrid YOLOS + SAM pipeline for satellite imagery; achieved +23% IoU over baseline; built India-specific dataset of 5,000+ aerial tiles.
+- [Vision-Language Model](https://github.com/panchaldhruv27223/Vision-Language-Model): Custom VLM combining SigLIP vision encoder and Gemma decoder with KV caching and top-p decoding.
+- [QuanvolutionNet](https://github.com/panchaldhruv27223/Image_classification_by_QNN): Hybrid quantum-classical CNN reaching 81.12% accuracy on CIFAR-10 by integrating quanvolutional filters.
+
+## Experience
+
+- **Teaching Assistant, DA-IICT** (Jan 2025 – Dec 2025): Mentoring 350+ students through ML coursework, lab sessions, and project evaluations.
+- **ML Researcher, DA-IICT Research Lab** (Aug 2024 – Dec 2025): Led hybrid pipeline development for aerial imagery segmentation, including 1,300+ manual annotations and active-learning integration.
+- **Python/ML Intern, Kody Technolab Pvt. Ltd.** (Jan 2024 – Jun 2024): Engineered multimodal AI assistant with face authentication; built Keras NLP classifier with 97% accuracy across 52 intents; integrated Whisper for voice-to-query.
+
+## Skills
+
+Python, PyTorch, TensorFlow, Scikit-Learn, NumPy, Pandas, HuggingFace, OpenCV, YOLO, DETR, Segment Anything Model (SAM), Transformers, SigLIP, Gemma, LangChain, LangGraph, RAG, Agentic AI, Model Context Protocol (MCP), AWS, Docker, MongoDB, PostgreSQL, Neo4j, Faiss, TensorBoard, Git, Linux.
+
+## Links
+
+- GitHub: https://github.com/panchaldhruv27223
+- LinkedIn: https://linkedin.com/in/dhruv-panchal-ab7135217
+- Medium: https://dhruv-panchal.medium.com
+- Topmate (1:1 consultations): https://topmate.io/panchal_dhruv
+- Codolio: https://codolio.com/profile/Dhruv%20Panchal
+
+## Writing
+
+Blog posts on machine learning, including:
+
+- Mastering Classification with Scikit-Learn
+- Supervised Learning with Scikit-learn
+- Scikit-learn Essentials: Why & How
+- ProGAN: Generating High Resolution Images
+- Understanding the U-Net Model
+- Fine-Tuning U-Net for Satellite Image Segmentation
+- Mastering TensorBoard with PyTorch
+- Collections Module in Python
+
+All posts available at https://panchaldhruv27223.github.io/blog
