@@ -67,7 +67,27 @@ const SEO: React.FC<SEOProps> = ({
         document.title = fullTitle;
         setMeta('meta[name="description"]', 'content', description);
         if (keywords) setMeta('meta[name="keywords"]', 'content', keywords);
-        setLink('canonical', resolvedUrl);
+
+        // Canonical URL always points to the GitHub Pages domain (the indexed mirror).
+        // Mirrors served from other domains (e.g. Vercel) thus tell Google "the real one is github.io".
+        const canonicalUrl = resolvedUrl.replace(
+            /^https?:\/\/[^/]+/,
+            SITE_DOMAIN
+        );
+        setLink('canonical', canonicalUrl);
+
+        // If we're on a non-canonical mirror (Vercel preview, custom subdomain, etc.), add noindex
+        // so search engines only index the canonical. The check runs in-browser, never affecting SSR/static HTML.
+        const isCanonicalHost =
+            typeof window === 'undefined' ||
+            window.location.origin === SITE_DOMAIN;
+        setMeta(
+            'meta[name="robots"]',
+            'content',
+            isCanonicalHost
+                ? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+                : 'noindex, follow'
+        );
 
         // Open Graph
         setMeta('meta[property="og:type"]', 'content', type);
