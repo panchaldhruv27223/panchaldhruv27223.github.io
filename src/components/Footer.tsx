@@ -28,10 +28,10 @@ const Footer: React.FC = () => {
     }, []);
 
     return (
-        <footer ref={sectionRef} className="pt-24 md:pt-64 lg:pt-80 pb-16 md:pb-24 lg:pb-32 px-6 md:px-12 lg:px-24 relative overflow-hidden bg-white text-black">
+        <footer ref={sectionRef} className="pt-20 md:pt-32 lg:pt-40 pb-16 md:pb-20 lg:pb-24 px-6 md:px-12 lg:px-24 relative overflow-hidden bg-white text-black">
             <div className="max-w-7xl mx-auto">
                 {/* Main CTA */}
-                <div className="text-center mb-16 md:mb-48 lg:mb-64">
+                <div className="text-center mb-16 md:mb-24 lg:mb-32">
                     <h2 className="reveal text-[12vw] md:text-[10vw] lg:text-[9vw] font-black leading-[0.8] tracking-tighter mb-12 md:mb-16 text-black">
                         Let's Build <br />
                         <span

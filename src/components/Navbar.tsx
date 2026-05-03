@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 const Navbar: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [overLight, setOverLight] = useState(false);
     const location = useLocation();
     const isHomePage = location.pathname === '/';
 
@@ -14,6 +15,21 @@ const Navbar: React.FC = () => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    // Detect when the navbar overlaps a light-background section (the footer) so we can invert text/borders.
+    useEffect(() => {
+        const footer = document.querySelector('footer');
+        if (!footer) {
+            setOverLight(false);
+            return;
+        }
+        const observer = new IntersectionObserver(
+            ([entry]) => setOverLight(entry.isIntersecting),
+            { rootMargin: '-80px 0px 0px 0px', threshold: 0 }
+        );
+        observer.observe(footer);
+        return () => observer.disconnect();
+    }, [location.pathname]);
 
     // Prevent body scroll when menu is open
     useEffect(() => {
@@ -59,21 +75,30 @@ const Navbar: React.FC = () => {
         <>
             {/* Main Navbar */}
             <nav
-                className={`fixed top-0 left-0 right-0 z-[100] px-4 sm:px-6 md:px-8 py-3 sm:py-4 md:py-6 transition-all duration-500 ${scrolled ? 'bg-brand-dark/50 backdrop-blur-xl supports-[backdrop-filter]:bg-brand-dark/30' : 'bg-transparent'
-                    }`}
+                className={`fixed top-0 left-0 right-0 z-[100] px-4 sm:px-6 md:px-8 py-3 sm:py-4 md:py-6 transition-all duration-500 ${
+                    overLight
+                        ? 'bg-white/90 backdrop-blur-xl supports-[backdrop-filter]:bg-white/70 border-b border-black/5'
+                        : scrolled
+                            ? 'bg-brand-dark/95 backdrop-blur-xl supports-[backdrop-filter]:bg-brand-dark/85 border-b border-white/5'
+                            : 'bg-transparent'
+                }`}
             >
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
                     {/* Menu Button */}
                     <button
                         onClick={() => setIsMenuOpen(true)}
-                        className="interactive group flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full border border-white/30 hover:border-brand-gold/50 bg-white/10 hover:bg-brand-gold/5 transition-all duration-300"
+                        className={`interactive group flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full border transition-all duration-300 ${
+                            overLight
+                                ? 'border-black/20 hover:border-brand-gold bg-black/5 hover:bg-brand-gold/10'
+                                : 'border-white/30 hover:border-brand-gold/50 bg-white/10 hover:bg-brand-gold/5'
+                        }`}
                         data-cursor="Open"
                     >
                         <div className="flex flex-col gap-1">
-                            <span className="block w-4 h-[2px] bg-white transition-all group-hover:w-5 group-hover:bg-brand-gold"></span>
-                            <span className="block w-3 h-[2px] bg-white transition-all group-hover:w-5 group-hover:bg-brand-gold"></span>
+                            <span className={`block w-4 h-[2px] transition-all group-hover:w-5 group-hover:bg-brand-gold ${overLight ? 'bg-black' : 'bg-white'}`}></span>
+                            <span className={`block w-3 h-[2px] transition-all group-hover:w-5 group-hover:bg-brand-gold ${overLight ? 'bg-black' : 'bg-white'}`}></span>
                         </div>
-                        <span className="text-[10px] sm:text-xs font-black tracking-widest uppercase text-white">Menu</span>
+                        <span className={`text-[10px] sm:text-xs font-black tracking-widest uppercase ${overLight ? 'text-black' : 'text-white'}`}>Menu</span>
                     </button>
 
                     {/* Center Logo/Text - Links to Home */}
@@ -82,7 +107,7 @@ const Navbar: React.FC = () => {
                         className="flex items-center gap-1 sm:gap-2 interactive"
                         data-cursor="Home"
                     >
-                        <span className="text-xs sm:text-sm md:text-base font-black tracking-[0.15em] uppercase text-white/70">Dhruv</span>
+                        <span className={`text-xs sm:text-sm md:text-base font-black tracking-[0.15em] uppercase ${overLight ? 'text-black/70' : 'text-white/70'}`}>Dhruv</span>
                         <span
                             className="text-lg sm:text-xl md:text-2xl text-brand-gold italic"
                             style={{ fontFamily: "'Caveat', cursive", fontWeight: 700 }}

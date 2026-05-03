@@ -13,12 +13,28 @@ import Footer from '../components/Footer';
 import SEO from '../components/SEO';
 
 const HomePage: React.FC = () => {
+    // BreadcrumbList helps Google show breadcrumb-rich snippets and gives LLMs a clean entity hierarchy.
+    const breadcrumbLd = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://panchaldhruv27223.github.io/',
+            },
+        ],
+    };
+
     return (
         <div className="relative selection:bg-brand-gold/30">
             <SEO
-                title="Dhruv Panchal | AI/ML Researcher & Engineer"
-                description="AI/ML Researcher specializing in Computer Vision, Multimodal AI, and Quantum Machine Learning. Building sentient-like vision systems."
-                keywords="AI, Machine Learning, Computer Vision, Deep Learning, Dhruv Panchal, Portfolio"
+                title="Dhruv Panchal | AI/ML Researcher & Engineer | DA-IICT"
+                description="Dhruv Panchal — AI/ML Researcher and ML Engineer. M.Tech @ DA-IICT (CGPA 9.58). Gold Medalist B.E. Specializing in Computer Vision, Vision-Language Models, and Quantum ML."
+                keywords="Dhruv Panchal, Dhruv Panchal AI, Dhruv Panchal ML, Dhruv Panchal portfolio, Dhruv Panchal DA-IICT, Dhruv Panchal researcher, AI Researcher India, ML Engineer India, Computer Vision, Vision Language Model, Quantum ML"
+                type="profile"
+                jsonLd={breadcrumbLd}
             />
             {/* Custom Cursor - Desktop Only */}
             <CustomCursor />
@@ -30,7 +46,7 @@ const HomePage: React.FC = () => {
             <Background />
 
             {/* Main Content */}
-            <main>
+            <main id="main-content">
                 {/* Hero Section - Cinematic Introduction */}
                 <Hero />
 

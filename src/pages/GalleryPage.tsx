@@ -22,6 +22,7 @@ interface GalleryItem {
 
 const GalleryPage: React.FC = () => {
     const pageRef = useRef<HTMLDivElement>(null);
+    const closeButtonRef = useRef<HTMLButtonElement>(null);
     const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
     useEffect(() => {
@@ -41,6 +42,32 @@ const GalleryPage: React.FC = () => {
         if (pageRef.current) observer.observe(pageRef.current);
         return () => observer.disconnect();
     }, []);
+
+    // Lock body scroll while the lightbox is open. Without this, the page scrolls behind the dark overlay.
+    useEffect(() => {
+        if (selectedImage === null) return;
+        const previous = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+        return () => { document.body.style.overflow = previous; };
+    }, [selectedImage]);
+
+    // Keyboard navigation in the lightbox: Esc closes, arrow keys move between images.
+    useEffect(() => {
+        if (selectedImage === null) return;
+        const onKey = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                setSelectedImage(null);
+            } else if (e.key === 'ArrowRight') {
+                setSelectedImage((i) => (i === null ? null : (i + 1) % galleryImages.length));
+            } else if (e.key === 'ArrowLeft') {
+                setSelectedImage((i) => (i === null ? null : (i - 1 + galleryImages.length) % galleryImages.length));
+            }
+        };
+        window.addEventListener('keydown', onKey);
+        // Move focus into the lightbox so screen readers announce the new context.
+        closeButtonRef.current?.focus();
+        return () => window.removeEventListener('keydown', onKey);
+    }, [selectedImage]);
 
     // Generate gallery items from imported images
     const galleryItems: GalleryItem[] = galleryImages.map((img: string, idx: number) => ({
@@ -62,7 +89,7 @@ const GalleryPage: React.FC = () => {
             <Navbar />
             <Background />
 
-            <main ref={pageRef} className="pt-32 pb-24 px-6 md:px-12 lg:px-24">
+            <main id="main-content" ref={pageRef} className="pt-32 pb-24 px-6 md:px-12 lg:px-24">
                 <div className="max-w-7xl mx-auto">
                     {/* Back Link */}
                     <Link
@@ -99,14 +126,15 @@ const GalleryPage: React.FC = () => {
                     {galleryItems.length > 0 ? (
                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
                             {galleryItems.map((item, idx) => (
-                                <div
+                                <button
                                     key={item.id}
+                                    type="button"
                                     onClick={() => setSelectedImage(idx)}
-                                    className={`reveal group relative overflow-hidden cursor-pointer interactive ${item.size === 'large' ? 'col-span-2 row-span-2' : ''
-                                        }`}
+                                    aria-label={`Open image ${idx + 1} in fullscreen`}
+                                    className={`reveal group relative overflow-hidden cursor-pointer interactive text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2 focus-visible:ring-offset-brand-dark ${item.size === 'large' ? 'col-span-2 row-span-2' : ''}`}
                                     data-cursor="View"
                                 >
-                                    <div className={`relative ${item.size === 'large' ? 'aspect-square' : 'aspect-[4/5]'} bg-brand-obsidian border border-white/20 hover:border-brand-gold/50 transition-all duration-500`}>
+                                    <div className={`relative ${item.size === 'large' ? 'aspect-square' : 'aspect-[4/5]'} bg-brand-obsidian border border-white/20 group-hover:border-brand-gold/50 transition-all duration-500`}>
 
                                         {/* Actual Image */}
                                         <img
@@ -114,16 +142,17 @@ const GalleryPage: React.FC = () => {
                                             alt={item.title}
                                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                             loading="lazy"
+                                            decoding="async"
                                         />
 
                                         {/* Hover overlay */}
                                         <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 text-center">
                                             <span className="text-[9px] text-brand-gold uppercase tracking-widest font-bold mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                                                {item.category}
+                                                View image
                                             </span>
                                         </div>
                                     </div>
-                                </div>
+                                </button>
                             ))}
                         </div>
                     ) : (
@@ -144,17 +173,59 @@ const GalleryPage: React.FC = () => {
             {/* Lightbox */}
             {selectedImage !== null && (
                 <div
+                    role="dialog"
+                    aria-modal="true"
+                    aria-label={`Image ${selectedImage + 1} of ${galleryItems.length}`}
                     className="fixed inset-0 z-[300] bg-black/95 flex items-center justify-center p-4 md:p-12 animate-fade-in"
                     onClick={() => setSelectedImage(null)}
                 >
+                    {/* Close */}
                     <button
-                        className="absolute top-8 right-8 text-white hover:text-brand-gold transition-colors z-[310]"
-                        aria-label="Close lightbox"
+                        ref={closeButtonRef}
+                        type="button"
+                        onClick={(e) => { e.stopPropagation(); setSelectedImage(null); }}
+                        className="absolute top-6 right-6 md:top-8 md:right-8 w-11 h-11 flex items-center justify-center rounded-full bg-black/60 border border-white/20 text-white hover:bg-brand-gold hover:text-black hover:border-brand-gold transition-colors z-[310] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
+                        aria-label="Close lightbox (Esc)"
                     >
-                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
+
+                    {/* Previous */}
+                    <button
+                        type="button"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedImage((i) => (i === null ? null : (i - 1 + galleryItems.length) % galleryItems.length));
+                        }}
+                        className="absolute left-3 md:left-8 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-black/60 border border-white/20 text-white hover:bg-brand-gold hover:text-black hover:border-brand-gold transition-colors z-[310] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
+                        aria-label="Previous image (Left arrow)"
+                    >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+
+                    {/* Next */}
+                    <button
+                        type="button"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedImage((i) => (i === null ? null : (i + 1) % galleryItems.length));
+                        }}
+                        className="absolute right-3 md:right-8 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-black/60 border border-white/20 text-white hover:bg-brand-gold hover:text-black hover:border-brand-gold transition-colors z-[310] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
+                        aria-label="Next image (Right arrow)"
+                    >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+
+                    {/* Counter */}
+                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 bg-black/60 border border-white/10 rounded-full text-[10px] font-bold tracking-widest text-white uppercase z-[310] pointer-events-none">
+                        {selectedImage + 1} / {galleryItems.length}
+                    </div>
 
                     <div className="relative max-w-full max-h-full" onClick={(e) => e.stopPropagation()}>
                         <img

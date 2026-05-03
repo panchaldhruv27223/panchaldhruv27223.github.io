@@ -28,7 +28,7 @@ const Experience: React.FC = () => {
     }, []);
 
     return (
-        <section id="experience" ref={sectionRef} className="py-20 md:py-48 lg:py-64 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
+        <section id="experience" ref={sectionRef} className="py-20 md:py-32 lg:py-40 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 md:mb-24">
                 <div>
                     <h2 className="reveal text-[10px] font-bold tracking-[0.5em] text-brand-gold mb-6 uppercase">
@@ -53,7 +53,7 @@ const Experience: React.FC = () => {
                 {EXPERIENCE.map((exp, idx) => (
                     <div
                         key={idx}
-                        className="reveal group border-t border-white/5 py-8 md:py-16 lg:py-24 hover:bg-white/[0.02] transition-colors px-4 md:px-6 lg:px-10 relative"
+                        className="reveal group border-t border-white/5 py-8 md:py-12 lg:py-16 hover:bg-white/[0.02] transition-colors px-4 md:px-6 lg:px-10 relative"
                     >
                         <div className="grid md:grid-cols-12 gap-6 md:gap-8 lg:gap-12 items-start">
                             {/* Period */}

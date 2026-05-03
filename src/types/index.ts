@@ -5,13 +5,26 @@ export interface Project {
     problem: string;
     approach: string;
     impact: string;
+    /** Headline metric pulled from `impact`. Optional — when present it's rendered as a hero number. */
+    metric?: { value: string; label: string };
+    /** Tech stack tags rendered as small chips below the title. */
+    tech?: string[];
     link: string;
     image: string;
 }
 
+export interface Skill {
+    name: string;
+    /** Years of experience (rounded). Used for the inline "·Ny" hint. */
+    years?: number;
+    /** Marks foundational tools the user uses daily — bolder visual treatment. */
+    primary?: boolean;
+}
+
 export interface SkillCategory {
     name: string;
-    skills: string[];
+    /** Either plain strings (legacy) or rich Skill objects. */
+    skills: Array<string | Skill>;
 }
 
 export interface ExperienceItem {

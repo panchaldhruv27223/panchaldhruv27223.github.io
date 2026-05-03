@@ -1,10 +1,25 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useMemo } from 'react';
 import { CERTIFICATES } from '../data/constants';
+
+type ViewportSize = 'sm' | 'md' | 'lg';
 
 const Certificates: React.FC = () => {
     const sectionRef = useRef<HTMLElement>(null);
     const [activeIndex, setActiveIndex] = useState(0);
     const [isVisible, setIsVisible] = useState(false);
+    const [isPaused, setIsPaused] = useState(false);
+    const [viewport, setViewport] = useState<ViewportSize>('lg');
+
+    // Track viewport size for the 3D carousel layout (sm shows only active card, md narrower offset, lg full effect)
+    useEffect(() => {
+        const update = () => {
+            const w = window.innerWidth;
+            setViewport(w < 768 ? 'sm' : w < 1024 ? 'md' : 'lg');
+        };
+        update();
+        window.addEventListener('resize', update);
+        return () => window.removeEventListener('resize', update);
+    }, []);
 
     // Intersection Observer for section visibility
     useEffect(() => {
@@ -28,34 +43,48 @@ const Certificates: React.FC = () => {
         return () => observer.disconnect();
     }, []);
 
-    // Auto-rotate certificates
+    // Auto-rotate certificates (paused on hover/focus or when reduced-motion is requested)
     useEffect(() => {
-        if (!isVisible) return;
+        if (!isVisible || isPaused) return;
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion) return;
         const interval = setInterval(() => {
             setActiveIndex((prev) => (prev + 1) % CERTIFICATES.length);
         }, 4000);
         return () => clearInterval(interval);
-    }, [isVisible]);
+    }, [isVisible, isPaused]);
 
     const icons = ['🎓', '🏆', '📜', '🎯', '💡', '⚡'];
+
+    // Pre-compute particle positions so they don't reshuffle on re-render
+    const particles = useMemo(
+        () =>
+            Array.from({ length: 20 }, () => ({
+                left: Math.random() * 100,
+                top: Math.random() * 100,
+                delay: Math.random() * 5,
+                duration: 4 + Math.random() * 4,
+            })),
+        []
+    );
 
     return (
         <section
             ref={sectionRef}
-            className="py-32 md:py-48 px-6 md:px-12 lg:px-24 relative overflow-hidden"
+            className="py-20 md:py-32 lg:py-40 px-6 md:px-12 lg:px-24 relative overflow-hidden"
         >
             {/* Animated Background Elements */}
             <div className="absolute inset-0 pointer-events-none">
                 {/* Floating particles */}
-                {[...Array(20)].map((_, i) => (
+                {particles.map((p, i) => (
                     <div
                         key={i}
                         className="absolute w-1 h-1 bg-brand-gold/30 rounded-full animate-float"
                         style={{
-                            left: `${Math.random() * 100}%`,
-                            top: `${Math.random() * 100}%`,
-                            animationDelay: `${Math.random() * 5}s`,
-                            animationDuration: `${4 + Math.random() * 4}s`,
+                            left: `${p.left}%`,
+                            top: `${p.top}%`,
+                            animationDelay: `${p.delay}s`,
+                            animationDuration: `${p.duration}s`,
                         }}
                     />
                 ))}
@@ -68,7 +97,7 @@ const Certificates: React.FC = () => {
                 {/* Header */}
                 <div className="text-center mb-16 md:mb-24">
                     <h2 className="reveal text-[10px] font-bold tracking-[0.5em] text-brand-gold mb-6 uppercase">
-                        07 — Credentials
+                        05 — Credentials
                     </h2>
                     <h3 className="reveal text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter">
                         My{' '}
@@ -85,18 +114,29 @@ const Certificates: React.FC = () => {
                 </div>
 
                 {/* Main Cards Display - 3D Carousel Effect */}
-                <div className="relative h-[450px] md:h-[500px] perspective-1000">
+                <div
+                    className="relative h-[450px] md:h-[500px] perspective-1000"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                    onFocus={() => setIsPaused(true)}
+                    onBlur={() => setIsPaused(false)}
+                >
                     {CERTIFICATES.map((cert, idx) => {
                         const offset = idx - activeIndex;
                         const absOffset = Math.abs(offset);
                         const isActive = idx === activeIndex;
 
-                        // Calculate 3D transform values
-                        const translateX = offset * 60;
+                        // Per-viewport transform tuning so adjacent cards don't bleed off-screen on small/medium devices.
+                        // sm: only the active card is shown; md: tighter offset & rotation; lg: full effect.
+                        const offsetFactor = viewport === 'sm' ? 0 : viewport === 'md' ? 35 : 60;
+                        const rotateFactor = viewport === 'sm' ? 0 : viewport === 'md' ? -10 : -15;
+                        const isHidden = viewport === 'sm' && !isActive;
+
+                        const translateX = offset * offsetFactor;
                         const translateZ = isActive ? 0 : -150 - absOffset * 50;
-                        const rotateY = offset * -15;
+                        const rotateY = offset * rotateFactor;
                         const scale = isActive ? 1 : 0.85 - absOffset * 0.05;
-                        const opacity = isActive ? 1 : Math.max(0.3, 0.7 - absOffset * 0.2);
+                        const opacity = isHidden ? 0 : isActive ? 1 : Math.max(0.3, 0.7 - absOffset * 0.2);
                         const zIndex = CERTIFICATES.length - absOffset;
 
                         return (
@@ -111,9 +151,12 @@ const Certificates: React.FC = () => {
                                         setActiveIndex(idx);
                                     }
                                 }}
-                                className={`reveal absolute left-1/2 top-1/2 w-[90vw] md:w-[600px] h-[350px] md:h-[400px] 
+                                aria-hidden={isHidden}
+                                tabIndex={isHidden ? -1 : 0}
+                                className={`reveal absolute left-1/2 top-1/2 w-[85vw] sm:w-[80vw] md:w-[520px] lg:w-[600px] h-[350px] md:h-[400px]
                                     rounded-2xl overflow-hidden cursor-pointer
                                     border-2 transition-all duration-700 ease-out
+                                    ${isHidden ? 'pointer-events-none' : ''}
                                     ${isActive
                                         ? 'border-brand-gold/50 shadow-[0_0_60px_rgba(201,162,39,0.2)]'
                                         : 'border-white/10 hover:border-white/30'

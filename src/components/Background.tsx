@@ -1,5 +1,5 @@
 import React from 'react';
-import bgImg from '../../images/background_image/eagle_image_1.jpg';
+import bgImg from '../../images/background_image/eagle_image_1.webp';
 
 const Background: React.FC = () => {
     return (

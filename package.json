@@ -6,7 +6,7 @@
   "homepage": "https://panchaldhruv27223.github.io/",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && node scripts/generate-sitemap.js && node scripts/post-build.js",
+    "build": "tsc && vite build && node scripts/generate-og-image.js && node scripts/generate-sitemap.js && node scripts/post-build.js",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },

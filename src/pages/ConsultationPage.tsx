@@ -18,7 +18,7 @@ const ConsultationPage: React.FC = () => {
             <Navbar />
             <Background />
 
-            <main className="pt-20">
+            <main id="main-content" className="pt-20">
                 {/* Back Link */}
                 <div className="px-6 md:px-12 lg:px-24 pt-12">
                     <div className="max-w-6xl mx-auto">

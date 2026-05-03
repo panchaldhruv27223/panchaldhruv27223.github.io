@@ -1,12 +1,12 @@
 import { Project, SkillCategory, ExperienceItem, BlogPost, Certificate } from '../types';
 
 // Images
-import rooftopImg from '../../images/project_images/solar_rooftop.png';
-import paligemmaImg from '../../images/project_images/vlm_paligemma_model.png';
-import quantumImg from '../../images/project_images/BenchMarkCNN.jpg';
-import cert1Img from '../../images/certificates/cert1.jpg';
-import cert2Img from '../../images/certificates/cert2.jpg';
-import cert3Img from '../../images/certificates/cert3.jpg';
+import rooftopImg from '../../images/project_images/solar_rooftop.webp';
+import paligemmaImg from '../../images/project_images/vlm_paligemma_model.webp';
+import quantumImg from '../../images/project_images/BenchMarkCNN.webp';
+import cert1Img from '../../images/certificates/cert1.webp';
+import cert2Img from '../../images/certificates/cert2.webp';
+import cert3Img from '../../images/certificates/cert3.webp';
 
 export const TAGLINES = ["Vision", "Language", "Intelligence", "Future"];
 
@@ -18,6 +18,8 @@ export const PROJECTS: Project[] = [
         problem: 'Identifying rooftops in high-resolution urban satellite imagery for solar potential assessment.',
         approach: 'Hybrid pipeline using YOLOS/DETR + SAM (Segment Anything Model). Created India-specific dataset with 5000+ aerial tiles.',
         impact: '+23% IoU improvement over baseline models',
+        metric: { value: '+23%', label: 'IoU vs baseline' },
+        tech: ['YOLOS', 'SAM', 'PyTorch', 'Active Learning', 'GeoTIFF'],
         link: 'https://github.com/panchaldhruv27223/Solar_Rooftop_Detection',
         image: rooftopImg
     },
@@ -28,6 +30,8 @@ export const PROJECTS: Project[] = [
         problem: 'Enabling scalable visual catalog understanding and complex visual question answering.',
         approach: 'Custom VLM combining SigLIP vision encoder and Gemma decoder. Integrated top-p decoding and KV caching.',
         impact: 'Production-ready visual reasoning engine',
+        metric: { value: 'Top-p', label: 'Decoding + KV cache' },
+        tech: ['SigLIP', 'Gemma', 'PyTorch', 'KV Cache', 'HuggingFace'],
         link: 'https://github.com/panchaldhruv27223/Vision-Language-Model',
         image: paligemmaImg
     },
@@ -38,6 +42,8 @@ export const PROJECTS: Project[] = [
         problem: 'Exploring quantum circuits as feature extractors in classical CNN architectures.',
         approach: 'Integrated quanvolutional filters into CNNs. Benchmarked 15+ quantum circuits with varied expressibility.',
         impact: '81.12% accuracy on CIFAR-10',
+        metric: { value: '81%', label: 'CIFAR-10 accuracy' },
+        tech: ['PennyLane', 'PyTorch', 'CIFAR-10', 'CNN', 'QNN'],
         link: 'https://github.com/panchaldhruv27223/Image_classification_by_QNN',
         image: quantumImg
     }
@@ -46,19 +52,57 @@ export const PROJECTS: Project[] = [
 export const SKILL_CATEGORIES: SkillCategory[] = [
     {
         name: 'Machine Learning',
-        skills: ['Python', 'NumPy', 'Pandas', 'PyTorch', 'TensorFlow', 'Scikit-Learn', 'Transfer Learning', 'Model Optimization']
+        skills: [
+            { name: 'Python', years: 5, primary: true },
+            { name: 'PyTorch', years: 3, primary: true },
+            { name: 'TensorFlow', years: 2 },
+            { name: 'Scikit-Learn', years: 4 },
+            { name: 'NumPy', years: 5 },
+            { name: 'Pandas', years: 5 },
+            { name: 'Transfer Learning', years: 2 },
+            { name: 'Model Optimization', years: 2 },
+        ]
     },
     {
         name: 'Vision & NLP',
-        skills: ['HuggingFace', 'OpenCV', 'YOLO', 'DETR', 'Transformers', 'SAM', 'Gemma', 'SigLIP']
+        skills: [
+            { name: 'HuggingFace', years: 3, primary: true },
+            { name: 'Transformers', years: 3, primary: true },
+            { name: 'OpenCV', years: 3 },
+            { name: 'YOLO', years: 2 },
+            { name: 'DETR', years: 1 },
+            { name: 'SAM', years: 1 },
+            { name: 'Gemma', years: 1 },
+            { name: 'SigLIP', years: 1 },
+        ]
     },
     {
         name: 'Gen-AI & Agents',
-        skills: ['Prompt Engineering', 'Agentic AI', 'MCP', 'Multi-Agent Orchestration', 'RAG', 'LangChain', 'LangGraph', "OpenAi Agent SDK", 'LangFuse', 'Neo4j', 'Faiss']
+        skills: [
+            { name: 'Prompt Engineering', years: 2, primary: true },
+            { name: 'RAG', years: 2, primary: true },
+            { name: 'LangChain', years: 2 },
+            { name: 'LangGraph', years: 1 },
+            { name: 'Agentic AI', years: 1 },
+            { name: 'Multi-Agent Orchestration', years: 1 },
+            { name: 'MCP', years: 1 },
+            { name: 'OpenAI Agent SDK', years: 1 },
+            { name: 'LangFuse', years: 1 },
+            { name: 'Neo4j', years: 1 },
+            { name: 'Faiss', years: 1 },
+        ]
     },
     {
         name: 'Tools & Cloud',
-        skills: ['AWS', 'Git', 'Docker', 'MongoDB', 'Linux', 'TensorBoard', 'PostgreSQL']
+        skills: [
+            { name: 'Git', years: 5, primary: true },
+            { name: 'Docker', years: 3 },
+            { name: 'AWS', years: 2 },
+            { name: 'Linux', years: 4 },
+            { name: 'MongoDB', years: 2 },
+            { name: 'PostgreSQL', years: 2 },
+            { name: 'TensorBoard', years: 2 },
+        ]
     }
 ];
 

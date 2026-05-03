@@ -51,21 +51,15 @@ body {
   min-height: 100vh;
 }
 
-/* Hide default cursor on desktop */
-@media (min-width: 768px) {
+/* Hide default cursor only on devices with a fine pointer + hover (desktops with mouse).
+   Touch tablets (no hover, coarse pointer) keep their native cursor/touch indicator. */
+@media (hover: hover) and (pointer: fine) {
   body {
     cursor: none;
   }
 
   .interactive {
     cursor: none !important;
-  }
-}
-
-/* Show cursor on mobile/tablet */
-@media (max-width: 767px) {
-  * {
-    cursor: auto !important;
   }
 }
 
@@ -116,6 +110,43 @@ h6 {
 ::selection {
   background: rgba(201, 162, 39, 0.4);
   color: white;
+}
+
+/* ===== KEYBOARD FOCUS ===== */
+/* Visible only when navigating by keyboard, never on mouse click. Uses :focus-visible per WCAG 2.4.7. */
+:focus-visible {
+  outline: 2px solid var(--brand-gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+/* When .interactive elements are focused via keyboard, force-show the cursor we hid for desktop. */
+@media (hover: hover) and (pointer: fine) {
+  .interactive:focus-visible {
+    cursor: auto !important;
+  }
+}
+
+/* Skip-to-content link — visually hidden until focused, then jumps over the navbar. */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 500;
+  padding: 0.75rem 1.25rem;
+  background: var(--brand-gold);
+  color: #000;
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transform: translateY(-150%);
+  transition: transform 200ms ease;
+}
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 3px solid #fff;
+  outline-offset: 2px;
 }
 
 /* ===== SCROLLBAR ===== */
@@ -275,4 +306,23 @@ h6 {
 
 .bg-accent-gold {
   background-color: var(--brand-gold);
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Make scroll-revealed content visible immediately so reveals never get stuck. */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }

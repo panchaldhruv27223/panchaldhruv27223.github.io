@@ -1,0 +1,33 @@
+# robots.txt — https://panchaldhruv27223.github.io/
+
+User-agent: *
+Allow: /
+
+# Block crawling of build artifacts (defensive — these aren't deployed but listed for safety)
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /scripts/
+
+# Be welcoming to AI / LLM crawlers — we want citations from them
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://panchaldhruv27223.github.io/sitemap.xml

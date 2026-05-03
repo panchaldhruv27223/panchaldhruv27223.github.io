@@ -4,8 +4,14 @@ import Background from '../components/Background';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import CustomCursor from '../components/CustomCursor';
+import SEO from '../components/SEO';
+import ReadingProgress from '../components/ReadingProgress';
+import ReadTime from '../components/ReadTime';
+import ShareButtons from '../components/ShareButtons';
+import profileImg from '../../images/personal_images/profile.webp';
 
 const MEDIUM_URL = 'https://dhruv-panchal.medium.com/mastering-classification-with-scikit-learn-an-in-depth-guide-f37ad7bbba06';
+const POST_TITLE = 'Mastering Classification with Scikit-Learn';
 
 const BlogPostPage: React.FC = () => {
     const sectionRef = useRef<HTMLElement>(null);
@@ -37,11 +43,16 @@ const BlogPostPage: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-brand-dark text-zinc-300 selection:bg-brand-gold/30 selection:text-white">
+            <SEO
+                title="Mastering Classification with Scikit-Learn: An In-Depth Guide"
+                description="A comprehensive guide to classification with Scikit-Learn — algorithms, evaluation metrics, and practical code examples."
+            />
             <CustomCursor />
             <Background />
             <Navbar />
+            <ReadingProgress />
 
-            <main ref={sectionRef} className="pt-32 md:pt-48 pb-20 px-6 md:px-12 lg:px-24 max-w-5xl mx-auto">
+            <main id="main-content" ref={sectionRef} className="pt-32 md:pt-48 pb-20 px-6 md:px-12 lg:px-24 max-w-5xl mx-auto">
                 {/* Back Link */}
                 <Link
                     to="/blog"
@@ -61,21 +72,24 @@ const BlogPostPage: React.FC = () => {
                         <span className="w-1 h-1 rounded-full bg-zinc-600"></span>
                         <span>Sep 13, 2025</span>
                         <span className="w-1 h-1 rounded-full bg-zinc-600"></span>
-                        <span>3 min read</span>
+                        <ReadTime />
                     </div>
 
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.1] mb-8">
                         Mastering Classification with <span className="text-brand-violet">Scikit-Learn</span>: An In-Depth Guide
                     </h1>
 
-                    <div className="flex items-center gap-4">
-                        <div className="w-10 h-10 rounded-full bg-zinc-800 border border-white/10 overflow-hidden">
-                            <img src="/images/personal_images/profile.jpg" alt="Dhruv Panchal" className="w-full h-full object-cover" />
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                        <div className="flex items-center gap-4">
+                            <div className="w-10 h-10 rounded-full bg-zinc-800 border border-white/10 overflow-hidden">
+                                <img src={profileImg} alt="Dhruv Panchal" className="w-full h-full object-cover" />
+                            </div>
+                            <div>
+                                <p className="text-sm font-bold text-white">Dhruv Panchal</p>
+                                <p className="text-xs text-zinc-500">AI/ML Researcher</p>
+                            </div>
                         </div>
-                        <div>
-                            <p className="text-sm font-bold text-white">Dhruv Panchal</p>
-                            <p className="text-xs text-zinc-500">AI/ML Researcher</p>
-                        </div>
+                        <ShareButtons title={POST_TITLE} />
                     </div>
                 </header>
 

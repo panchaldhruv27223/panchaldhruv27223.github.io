@@ -27,10 +27,15 @@ const Hero: React.FC = () => {
         }), []);
 
     useEffect(() => {
-        // Trigger letter assembly after delay
-        const assemblyTimer = setTimeout(() => setIsAssembled(true), 600);
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        // Rotate taglines
+        // Skip the fly-in animation entirely for reduced-motion users — render letters in their final position.
+        const assemblyTimer = setTimeout(() => setIsAssembled(true), prefersReducedMotion ? 0 : 600);
+
+        // Rotate taglines (paused for reduced-motion users; they get the first tagline only)
+        if (prefersReducedMotion) {
+            return () => clearTimeout(assemblyTimer);
+        }
         const interval = setInterval(() => {
             setTaglineIndex((prev) => (prev + 1) % TAGLINES.length);
         }, 2500);
@@ -54,19 +59,21 @@ const Hero: React.FC = () => {
                     </span>
                 </div>
 
-                {/* Name - DHRUV */}
-                <div className="hero-heading relative">
-                    <h1
-                        className="text-[15vw] md:text-[14vw] lg:text-[11vw] leading-[0.75] font-black tracking-tight mb-0 opacity-0 translate-y-20"
+                {/* Name — single H1 wraps both lines so Google/LLMs see "Dhruv Panchal" as the page heading */}
+                <h1 className="hero-heading relative m-0">
+                    <span className="sr-only">Dhruv Panchal — AI/ML Researcher and Machine Learning Engineer</span>
+                    <span
+                        aria-hidden="true"
+                        className="block text-[15vw] md:text-[14vw] lg:text-[11vw] leading-[0.75] font-black tracking-tight mb-0 opacity-0 translate-y-20"
                         style={{
                             animation: 'reveal-up 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards'
                         }}
                     >
                         DHRUV
-                    </h1>
+                    </span>
 
-                    {/* Name - PANCHAL with flying letters */}
-                    <div className="flex text-[15vw] md:text-[14vw] lg:text-[11vw] leading-[0.75] font-black tracking-tight overflow-visible h-[1.1em]">
+                    {/* Last name with flying letters */}
+                    <span aria-hidden="true" className="flex text-[15vw] md:text-[14vw] lg:text-[11vw] leading-[0.75] font-black tracking-tight overflow-visible h-[1.1em]">
                         {lastName.split('').map((char, i) => (
                             <span
                                 key={i}
@@ -86,8 +93,8 @@ const Hero: React.FC = () => {
                                 {char}
                             </span>
                         ))}
-                    </div>
-                </div>
+                    </span>
+                </h1>
 
                 {/* Tagline row */}
                 <div
@@ -113,9 +120,23 @@ const Hero: React.FC = () => {
 
                     <div className="hidden lg:block h-px flex-grow bg-white/5"></div>
 
-                    <div className="flex gap-6 md:gap-8 text-[9px] md:text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-600">
-                        <span>001 / DA-IICT</span>
-                        <span>002 / Researcher</span>
+                    <div className="flex flex-wrap items-center gap-4 md:gap-6">
+                        <a
+                            href="/DhruvPanchal-CV.pdf"
+                            download
+                            className="interactive group inline-flex items-center gap-2 px-4 py-2 border border-brand-gold/40 text-brand-gold text-[10px] md:text-xs font-black tracking-[0.25em] uppercase hover:bg-brand-gold hover:text-black transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2 focus-visible:ring-offset-brand-dark"
+                            data-cursor="Download"
+                            aria-label="Download Dhruv Panchal's resume PDF"
+                        >
+                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" aria-hidden="true">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                            </svg>
+                            Download CV
+                        </a>
+                        <div className="flex gap-6 md:gap-8 text-[9px] md:text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-600">
+                            <span>001 / DA-IICT</span>
+                            <span>002 / Researcher</span>
+                        </div>
                     </div>
                 </div>
             </div>

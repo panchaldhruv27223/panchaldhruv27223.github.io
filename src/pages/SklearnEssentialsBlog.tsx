@@ -4,8 +4,14 @@ import Background from '../components/Background';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import CustomCursor from '../components/CustomCursor';
+import SEO from '../components/SEO';
+import ReadingProgress from '../components/ReadingProgress';
+import ReadTime from '../components/ReadTime';
+import ShareButtons from '../components/ShareButtons';
+import profileImg from '../../images/personal_images/profile.webp';
 
 const MEDIUM_URL = 'https://dhruv-panchal.medium.com/scikit-learn-essentials-why-to-use-scikit-learn-and-how-to-use-e03e1aca258d';
+const POST_TITLE = 'Scikit-learn Essentials: Why & How';
 
 const SklearnEssentialsBlog: React.FC = () => {
     const sectionRef = useRef<HTMLElement>(null);
@@ -37,11 +43,16 @@ const SklearnEssentialsBlog: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-brand-dark text-zinc-300 selection:bg-brand-gold/30 selection:text-white">
+            <SEO
+                title="Scikit-learn Essentials: Why & How"
+                description="Why Scikit-learn is the go-to library for ML in Python and how to use its unified API for efficient workflows."
+            />
             <CustomCursor />
             <Background />
             <Navbar />
+            <ReadingProgress />
 
-            <main ref={sectionRef} className="pt-32 md:pt-48 pb-20 px-6 md:px-12 lg:px-24 max-w-5xl mx-auto">
+            <main id="main-content" ref={sectionRef} className="pt-32 md:pt-48 pb-20 px-6 md:px-12 lg:px-24 max-w-5xl mx-auto">
                 {/* Back Link */}
                 <Link
                     to="/blog"
@@ -61,21 +72,24 @@ const SklearnEssentialsBlog: React.FC = () => {
                         <span className="w-1 h-1 rounded-full bg-zinc-600"></span>
                         <span>Machine Learning</span>
                         <span className="w-1 h-1 rounded-full bg-zinc-600"></span>
-                        <span>5 min read</span>
+                        <ReadTime />
                     </div>
 
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.1] mb-8">
                         Scikit-learn Essentials: <span className="text-brand-violet">Why</span> & <span className="text-brand-gold">How</span>
                     </h1>
 
-                    <div className="flex items-center gap-4">
-                        <div className="w-10 h-10 rounded-full bg-zinc-800 border border-white/10 overflow-hidden">
-                            <img src="/images/personal_images/profile.jpg" alt="Dhruv Panchal" className="w-full h-full object-cover" />
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                        <div className="flex items-center gap-4">
+                            <div className="w-10 h-10 rounded-full bg-zinc-800 border border-white/10 overflow-hidden">
+                                <img src={profileImg} alt="Dhruv Panchal" className="w-full h-full object-cover" />
+                            </div>
+                            <div>
+                                <p className="text-sm font-bold text-white">Dhruv Panchal</p>
+                                <p className="text-xs text-zinc-500">AI/ML Researcher</p>
+                            </div>
                         </div>
-                        <div>
-                            <p className="text-sm font-bold text-white">Dhruv Panchal</p>
-                            <p className="text-xs text-zinc-500">AI/ML Researcher</p>
-                        </div>
+                        <ShareButtons title={POST_TITLE} />
                     </div>
                 </header>
 

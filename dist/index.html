@@ -2,34 +2,307 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon_trans_black.png" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/png" href="/favicon_trans_white.png" media="(prefers-color-scheme: dark)" />
+    <link rel="apple-touch-icon" href="/favicon_trans_white.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-    
-    <!-- SEO Meta Tags -->
-    <title>Dhruv Panchal | AI/ML Researcher & Engineer</title>
-    <meta name="description" content="Dhruv Panchal - AI/ML Researcher specializing in Computer Vision, Multimodal AI, and Quantum Machine Learning. M.Tech @ DA-IICT with Gold Medal in B.E." />
-    <meta name="keywords" content="Dhruv Panchal, Machine Learning, AI Researcher, Computer Vision, NLP, Quantum ML, DA-IICT, Portfolio" />
+    <meta name="theme-color" content="#0A0A0A" />
+
+    <!-- Primary SEO -->
+    <title>Dhruv Panchal | AI/ML Researcher & Engineer | DA-IICT</title>
+    <meta name="description" content="Dhruv Panchal — AI/ML Researcher and Machine Learning Engineer. M.Tech @ DA-IICT (CGPA 9.58), Gold Medalist in B.E. Specializing in Computer Vision, Multimodal AI, Vision-Language Models, and Quantum Machine Learning." />
+    <meta name="keywords" content="Dhruv Panchal, Dhruv Panchal AI, Dhruv Panchal ML, Dhruv Panchal Machine Learning, Dhruv Panchal DA-IICT, Dhruv Panchal portfolio, Dhruv Panchal researcher, Dhruv Panchal computer vision, Dhruv Panchal Ahmedabad, Dhruv Panchal LinkedIn, Dhruv Panchal GitHub, AI Researcher India, ML Engineer India, M.Tech DA-IICT, Computer Vision researcher, Vision Language Model, YOLOS SAM, SigLIP Gemma, Quantum Machine Learning" />
     <meta name="author" content="Dhruv Panchal" />
-    
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="google" content="notranslate" />
+    <link rel="canonical" href="https://panchaldhruv27223.github.io/" />
+
     <!-- Open Graph -->
+    <meta property="og:site_name" content="Dhruv Panchal" />
     <meta property="og:title" content="Dhruv Panchal | AI/ML Researcher & Engineer" />
-    <meta property="og:description" content="Building sentient-like vision systems. Specializing in Computer Vision, Multimodal AI, and Quantum ML." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://panchaldhruv27223.github.io" />
-    
+    <meta property="og:description" content="AI/ML Researcher specializing in Computer Vision, Vision-Language Models, and Quantum ML. M.Tech @ DA-IICT, Gold Medalist B.E. Building sentient-like vision systems." />
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content="https://panchaldhruv27223.github.io/" />
+    <meta property="og:image" content="https://panchaldhruv27223.github.io/og-image.png" />
+    <meta property="og:image:alt" content="Dhruv Panchal — AI/ML Researcher" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="profile:first_name" content="Dhruv" />
+    <meta property="profile:last_name" content="Panchal" />
+    <meta property="profile:username" content="panchaldhruv27223" />
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Dhruv Panchal | AI/ML Researcher" />
-    <meta name="twitter:description" content="Building sentient-like vision systems. M.Tech ML @ DA-IICT" />
-    
-    <!-- Fonts -->
+    <meta name="twitter:description" content="AI/ML Researcher · Computer Vision · Multimodal AI · Quantum ML. M.Tech @ DA-IICT." />
+    <meta name="twitter:image" content="https://panchaldhruv27223.github.io/og-image.png" />
+    <meta name="twitter:image:alt" content="Dhruv Panchal — AI/ML Researcher" />
+
+    <!-- Verification (placeholder — replace with your real verification token from Search Console) -->
+    <!-- <meta name="google-site-verification" content="YOUR_TOKEN_HERE" /> -->
+
+    <!-- DNS hints for external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://github.com" />
+    <link rel="dns-prefetch" href="https://linkedin.com" />
+
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="./assets/index-CheODHdH.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BIgYRLBZ.css">
+
+    <!-- Initial-load splash. Shown until React mounts, then removed by main.tsx.
+         The crawlable fallback inside #root is visually hidden (still in the DOM, so SEO is preserved). -->
+    <style>
+      :root { color-scheme: dark; }
+      html, body { background: #0A0A0A; margin: 0; }
+      body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #fff; }
+
+      /* Hide the SEO fallback visually (still readable by crawlers/screen-readers via the DOM) */
+      #root > .seo-fallback {
+        position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+        overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+      }
+
+      /* Splash screen */
+      #app-splash {
+        position: fixed; inset: 0; z-index: 9999;
+        display: flex; align-items: center; justify-content: center; flex-direction: column;
+        gap: 1.5rem;
+        background: #0A0A0A;
+        transition: opacity 400ms ease, visibility 400ms ease;
+      }
+      #app-splash.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+      #app-splash .brand {
+        font-family: 'Outfit', sans-serif;
+        font-weight: 900;
+        letter-spacing: 0.18em;
+        font-size: 14px;
+        color: #fff;
+      }
+      #app-splash .brand .accent {
+        font-family: 'Caveat', cursive;
+        font-style: italic;
+        font-size: 22px;
+        font-weight: 700;
+        color: #C9A227;
+        margin-left: 6px;
+        letter-spacing: 0;
+      }
+      #app-splash .ring {
+        width: 36px; height: 36px;
+        border: 2px solid rgba(255,255,255,0.08);
+        border-top-color: #C9A227;
+        border-radius: 50%;
+        animation: app-splash-spin 0.9s linear infinite;
+      }
+      #app-splash .label {
+        font-size: 9px; letter-spacing: 0.5em; text-transform: uppercase;
+        color: rgba(255,255,255,0.35);
+      }
+      @keyframes app-splash-spin { to { transform: rotate(360deg); } }
+      @media (prefers-reduced-motion: reduce) {
+        #app-splash .ring { animation: none; border-top-color: rgba(201,162,39,0.6); }
+      }
+    </style>
+
+    <!-- JSON-LD: Person schema (the primary entity Google + LLMs use to identify Dhruv) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "https://panchaldhruv27223.github.io/#dhruv-panchal",
+      "name": "Dhruv Panchal",
+      "givenName": "Dhruv",
+      "familyName": "Panchal",
+      "alternateName": ["Dhruv Bharatbhai Panchal"],
+      "url": "https://panchaldhruv27223.github.io/",
+      "image": "https://panchaldhruv27223.github.io/og-image.png",
+      "jobTitle": "AI/ML Researcher & Machine Learning Engineer",
+      "description": "AI/ML Researcher specializing in Computer Vision, Multimodal AI, Vision-Language Models, and Quantum Machine Learning. M.Tech in Machine Learning at DA-IICT with Gold Medal in B.E. Information Technology.",
+      "knowsAbout": [
+        "Machine Learning",
+        "Deep Learning",
+        "Computer Vision",
+        "Natural Language Processing",
+        "Multimodal AI",
+        "Vision-Language Models",
+        "Quantum Machine Learning",
+        "PyTorch",
+        "TensorFlow",
+        "Generative AI",
+        "Retrieval-Augmented Generation",
+        "Agentic AI",
+        "Image Segmentation",
+        "Object Detection",
+        "YOLOS",
+        "Segment Anything Model",
+        "SigLIP",
+        "Gemma"
+      ],
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Dhirubhai Ambani Institute of Information and Communication Technology",
+          "alternateName": "DA-IICT",
+          "sameAs": "https://www.daiict.ac.in/"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Gandhinagar Institute of Technology",
+          "alternateName": "GIT"
+        }
+      ],
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "M.Tech in Machine Learning",
+          "credentialCategory": "degree",
+          "educationalLevel": "Master's Degree",
+          "recognizedBy": { "@type": "CollegeOrUniversity", "name": "DA-IICT" }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "B.E. in Information Technology (Gold Medalist)",
+          "credentialCategory": "degree",
+          "educationalLevel": "Bachelor's Degree",
+          "recognizedBy": { "@type": "CollegeOrUniversity", "name": "Gandhinagar Institute of Technology" }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Advanced Learning Algorithms",
+          "credentialCategory": "certification",
+          "recognizedBy": { "@type": "Organization", "name": "DeepLearning.AI & Stanford University" },
+          "url": "https://coursera.org/verify/7ZVANPB76FCM"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Supervised Machine Learning",
+          "credentialCategory": "certification",
+          "recognizedBy": { "@type": "Organization", "name": "DeepLearning.AI & Stanford University" },
+          "url": "https://coursera.org/verify/NJH2VBRLUNF3"
+        }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ahmedabad",
+        "addressRegion": "Gujarat",
+        "addressCountry": "IN"
+      },
+      "email": "mailto:dhruv.panchal27223@gmail.com",
+      "sameAs": [
+        "https://github.com/panchaldhruv27223",
+        "https://linkedin.com/in/dhruv-panchal-ab7135217",
+        "https://dhruv-panchal.medium.com",
+        "https://topmate.io/panchal_dhruv",
+        "https://codolio.com/profile/Dhruv%20Panchal"
+      ],
+      "nationality": { "@type": "Country", "name": "India" }
+    }
+    </script>
+
+    <!-- JSON-LD: WebSite schema (enables sitelinks search box in Google) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://panchaldhruv27223.github.io/#website",
+      "url": "https://panchaldhruv27223.github.io/",
+      "name": "Dhruv Panchal — AI/ML Researcher",
+      "description": "Personal portfolio of Dhruv Panchal: AI/ML research, projects, and writing.",
+      "inLanguage": "en",
+      "author": { "@id": "https://panchaldhruv27223.github.io/#dhruv-panchal" },
+      "publisher": { "@id": "https://panchaldhruv27223.github.io/#dhruv-panchal" }
+    }
+    </script>
+
+    <!-- JSON-LD: ProfilePage schema (primary entity = the person) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "url": "https://panchaldhruv27223.github.io/",
+      "name": "Dhruv Panchal — AI/ML Researcher Portfolio",
+      "mainEntity": { "@id": "https://panchaldhruv27223.github.io/#dhruv-panchal" },
+      "isPartOf": { "@id": "https://panchaldhruv27223.github.io/#website" }
+    }
+    </script>
+    <script type="module" crossorigin src="/assets/index-DCzCReY6.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DIL_uOIA.css">
   </head>
   <body>
-    <div id="root"></div>
+    <!-- Splash overlay; main.tsx removes this once React mounts. -->
+    <div id="app-splash" role="status" aria-live="polite" aria-label="Loading Dhruv Panchal portfolio">
+      <div class="brand">DHRUV<span class="accent">Panchal</span></div>
+      <div class="ring" aria-hidden="true"></div>
+      <div class="label">Loading</div>
+    </div>
+    <div id="root">
+      <!-- Crawlable fallback for search engines and LLMs that don't execute JS.
+           Visually hidden via CSS; replaced by React on hydration. Keep it semantic and rich in entities. -->
+      <div class="seo-fallback">
+        <header>
+          <h1>Dhruv Panchal — AI/ML Researcher &amp; Machine Learning Engineer</h1>
+          <p>
+            M.Tech in Machine Learning at <strong>DA-IICT</strong> (CGPA 9.58). Gold Medalist in B.E. Information Technology
+            from Gandhinagar Institute of Technology. Based in Ahmedabad, Gujarat, India.
+          </p>
+        </header>
+        <main>
+        <section aria-label="About">
+          <h2>About Dhruv Panchal</h2>
+          <p>
+            Dhruv Panchal is an AI/ML researcher and machine learning engineer specializing in
+            Computer Vision, Multimodal AI, Vision-Language Models, and Quantum Machine Learning.
+            He is currently pursuing his M.Tech in Machine Learning at the Dhirubhai Ambani Institute
+            of Information and Communication Technology (DA-IICT). Dhruv earned a Gold Medal for his
+            Bachelor's degree in Information Technology and has mentored over 350 students as a
+            Teaching Assistant at DA-IICT.
+          </p>
+        </section>
+        <section aria-label="Research Highlights">
+          <h2>Research &amp; Projects</h2>
+          <ul>
+            <li>
+              <strong>Rooftop Segmentation</strong> — Hybrid YOLOS + SAM pipeline for satellite
+              imagery, achieving +23% IoU over baseline. Built India-specific dataset of 5000+ aerial tiles.
+            </li>
+            <li>
+              <strong>Vision-Language Model</strong> — Custom VLM combining SigLIP and Gemma with KV
+              caching and top-p decoding for visual question answering.
+            </li>
+            <li>
+              <strong>QuanvolutionNet</strong> — Hybrid quantum-classical CNN reaching 81.12% on CIFAR-10
+              by integrating quanvolutional filters.
+            </li>
+          </ul>
+        </section>
+        <section aria-label="Skills">
+          <h2>Technical Skills</h2>
+          <p>
+            Python, PyTorch, TensorFlow, Scikit-Learn, HuggingFace, OpenCV, YOLO, DETR, Segment
+            Anything Model, Transformers, SigLIP, Gemma, LangChain, LangGraph, RAG, Agentic AI, AWS,
+            Docker, MongoDB, PostgreSQL, Neo4j, Faiss.
+          </p>
+        </section>
+        <section aria-label="Contact">
+          <h2>Contact</h2>
+          <p>
+            Email: <a href="mailto:dhruv.panchal27223@gmail.com">dhruv.panchal27223@gmail.com</a><br />
+            GitHub: <a href="https://github.com/panchaldhruv27223">github.com/panchaldhruv27223</a><br />
+            LinkedIn: <a href="https://linkedin.com/in/dhruv-panchal-ab7135217">linkedin.com/in/dhruv-panchal-ab7135217</a><br />
+            Medium: <a href="https://dhruv-panchal.medium.com">dhruv-panchal.medium.com</a>
+          </p>
+        </section>
+        </main>
+      </div>
+      <noscript>
+        <p style="color:#fff;background:#0A0A0A;padding:1rem;font-family:sans-serif;">
+          This site is built with React. Please enable JavaScript to view the full interactive experience,
+          or browse the content above.
+        </p>
+      </noscript>
+    </div>
   </body>
 </html>

@@ -4,6 +4,13 @@ import Background from '../components/Background';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import CustomCursor from '../components/CustomCursor';
+import SEO from '../components/SEO';
+import ReadingProgress from '../components/ReadingProgress';
+import ReadTime from '../components/ReadTime';
+import ShareButtons from '../components/ShareButtons';
+import profileImg from '../../images/personal_images/profile.webp';
+
+const POST_TITLE = 'Understanding the U-Net Model';
 
 const MEDIUM_URL = 'https://dhruv-panchal.medium.com/understanding-the-u-net-model-revolutionizing-image-segmentation-48f4ba44b45c';
 
@@ -37,11 +44,16 @@ const UNetBlog: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-brand-dark text-zinc-300 selection:bg-brand-gold/30 selection:text-white">
+            <SEO
+                title="Understanding the U-Net Model"
+                description="Revolutionizing image segmentation with the U-Net architecture - a deep dive into encoder-decoder networks."
+            />
             <CustomCursor />
             <Background />
             <Navbar />
+            <ReadingProgress />
 
-            <main ref={sectionRef} className="pt-32 md:pt-48 pb-20 px-6 md:px-12 lg:px-24 max-w-5xl mx-auto">
+            <main id="main-content" ref={sectionRef} className="pt-32 md:pt-48 pb-20 px-6 md:px-12 lg:px-24 max-w-5xl mx-auto">
                 {/* Back Link */}
                 <Link
                     to="/blog"
@@ -58,10 +70,10 @@ const UNetBlog: React.FC = () => {
                 <header className="reveal mb-16 md:mb-24 border-b border-white/10 pb-16">
                     <div className="flex flex-wrap items-center gap-4 text-[10px] font-bold tracking-[0.2em] text-[#C9A227] uppercase mb-6">
                         <span>Deep Learning</span>
-                        <span className="w-1 h-1 rounded-full bg-zinc-600"></span>
+                        <span className="w-1 h-1 rounded-full bg-zinc-600" aria-hidden="true"></span>
                         <span>Computer Vision</span>
-                        <span className="w-1 h-1 rounded-full bg-zinc-600"></span>
-                        <span>4 min read</span>
+                        <span className="w-1 h-1 rounded-full bg-zinc-600" aria-hidden="true"></span>
+                        <ReadTime />
                     </div>
 
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.1] mb-8">
@@ -72,14 +84,17 @@ const UNetBlog: React.FC = () => {
                         Revolutionizing image segmentation with the U-Net architecture — a deep dive into encoder-decoder networks.
                     </p>
 
-                    <div className="flex items-center gap-4">
-                        <div className="w-10 h-10 rounded-full bg-zinc-800 border border-white/10 overflow-hidden">
-                            <img src="/images/personal_images/profile.jpg" alt="Dhruv Panchal" className="w-full h-full object-cover" />
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                        <div className="flex items-center gap-4">
+                            <div className="w-10 h-10 rounded-full bg-zinc-800 border border-white/10 overflow-hidden">
+                                <img src={profileImg} alt="Dhruv Panchal" className="w-full h-full object-cover" />
+                            </div>
+                            <div>
+                                <p className="text-sm font-bold text-white">Dhruv Panchal</p>
+                                <p className="text-xs text-zinc-500">AI/ML Researcher</p>
+                            </div>
                         </div>
-                        <div>
-                            <p className="text-sm font-bold text-white">Dhruv Panchal</p>
-                            <p className="text-xs text-zinc-500">AI/ML Researcher</p>
-                        </div>
+                        <ShareButtons title={POST_TITLE} />
                     </div>
                 </header>
 

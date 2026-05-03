@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import profileImg from '../../images/personal_images/profile.jpg';
+import profileImg from '../../images/personal_images/profile.webp';
 
 const About: React.FC = () => {
     const sectionRef = useRef<HTMLElement>(null);
@@ -40,7 +40,7 @@ const About: React.FC = () => {
     ];
 
     return (
-        <section id="about" ref={sectionRef} className="py-20 md:py-48 px-6 md:px-12 lg:px-24">
+        <section id="about" ref={sectionRef} className="py-20 md:py-32 lg:py-40 px-6 md:px-12 lg:px-24">
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="grid md:grid-cols-12 gap-12 items-start">
